@@ -38,8 +38,10 @@ function Countdown() {
         <div key={label} className="flex flex-col items-center">
           <div
             className="flex items-center justify-center font-bold"
-            style={{ width: "min(5rem, 21vw)", height: "min(5rem, 21vw)", fontSize: "min(1.75rem, 5.5vw)" }}
             style={{
+              width: "min(5rem, 21vw)",
+              height: "min(5rem, 21vw)",
+              fontSize: "min(1.75rem, 5.5vw)",
               background: "rgba(201,168,76,0.15)",
               border: "2px solid #c9a84c",
               color: "#c9a84c",
