@@ -203,7 +203,7 @@ export default function Home() {
           className="fade-in-up-delay tracking-wider"
           style={{ fontSize: "1.2rem", color: "#ffffff", opacity: 0.85, letterSpacing: "0.15em", marginBottom: "1.5rem", textShadow: "0 1px 6px rgba(0,0,0,0.8)" }}
         >
-          Küsnacht, Zürich
+          Sonne Boutiquehotel &amp; Seerestaurant, Küsnacht
         </p>
 
         {/* Countdown */}
