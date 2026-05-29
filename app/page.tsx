@@ -28,7 +28,7 @@ function Countdown() {
   }, []);
 
   return (
-    <div className="flex gap-6 justify-center flex-wrap">
+    <div className="flex justify-center" style={{ gap: "min(1.5rem, 3vw)" }}>
       {[
         { label: "Days", value: timeLeft.days },
         { label: "Hours", value: timeLeft.hours },
@@ -37,7 +37,8 @@ function Countdown() {
       ].map(({ label, value }) => (
         <div key={label} className="flex flex-col items-center">
           <div
-            className="w-20 h-20 flex items-center justify-center text-3xl font-bold"
+            className="flex items-center justify-center font-bold"
+            style={{ width: "min(5rem, 21vw)", height: "min(5rem, 21vw)", fontSize: "min(1.75rem, 5.5vw)" }}
             style={{
               background: "rgba(201,168,76,0.15)",
               border: "2px solid #c9a84c",
