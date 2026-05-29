@@ -34,7 +34,7 @@ const events = [
 export default function Program() {
   return (
     <div style={{ minHeight: "100vh", background: "#0f0604", paddingTop: "4.5rem" }}>
-      <main className="max-w-2xl mx-auto px-6 py-12">
+      <main className="page-enter max-w-2xl mx-auto px-6 py-12">
 
         {/* Header */}
         <div className="text-center mb-12">
