@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
   title: "Ihssan & Sarah — 6 September 2026",
-  description: "We're getting married! Join us in Zürich Tiefenbrunnen.",
+  description: "We're getting married! Join us in Küsnacht, Zürich.",
 };
 
 export default function RootLayout({
