@@ -132,8 +132,8 @@ function MealDropdown({ value, onChange }: { value: string; onChange: (v: string
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function Home() {
-  const heroTop = "#c8b8a2";
-  const heroMid = "#8a9e8c";
+  const heroTop = "#5879a2";
+  const heroMid = "#5879a2";
 
   // RSVP state
   const [count, setCount] = useState<number>(1);
@@ -219,15 +219,15 @@ export default function Home() {
     <div style={{ background: "#fdf7f0" }}>
 
       {/* ── HOME ── */}
-      <section id="home" style={{ background: `linear-gradient(to bottom, ${heroTop} 0%, ${heroMid} 50%, #6b7d6e 70%, #fdf7f0 90%)` }}>
+      <section id="home" style={{ background: `linear-gradient(to bottom, ${heroTop} 0%, ${heroTop} 55%, #fdf7f0 85%)` }}>
         <main
           className="flex flex-col items-center justify-start px-6 text-center"
           style={{ paddingTop: "5rem", paddingBottom: "0", gap: "0" }}
         >
-          <p className="fade-in-up" style={{ color: "#4a3728", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.8rem, 5vw, 2.8rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
+          <p className="fade-in-up" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.8rem, 5vw, 2.8rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </p>
-          <h1 className="fade-in-up font-light" style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", letterSpacing: "0.1em", fontSize: "clamp(2rem, 8vw, 4rem)", lineHeight: 1.1, marginBottom: "0.6rem" }}>
+          <h1 className="fade-in-up font-light" style={{ color: "#fff", fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", letterSpacing: "0.1em", fontSize: "clamp(2rem, 8vw, 4rem)", lineHeight: 1.1, marginBottom: "0.6rem" }}>
             Sarah &amp; Ihssan
           </h1>
           <div className="fade-in-up" style={{ position: "relative", width: "100vw", maxWidth: "520px", marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }}>
