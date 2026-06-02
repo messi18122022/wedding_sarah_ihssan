@@ -70,7 +70,7 @@ export default function Navbar() {
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 fontFamily: "'Jost', sans-serif",
-                fontWeight: active === id ? 300 : 200,
+                fontWeight: active === id ? 400 : 300,
                 borderBottom: "none",
                 borderBottomWidth: "1px",
                 borderBottomStyle: "solid",
