@@ -125,8 +125,8 @@ export default function Home() {
       {/* ── HOME ── */}
       <section id="home" style={{ minHeight: "100vh", background: `linear-gradient(to bottom, ${seaBlue} 0%, ${seaBlue} 55%, #ffffff 85%)` }}>
         <main
-          className="flex flex-col items-center justify-center px-6 text-center"
-          style={{ minHeight: "100vh", paddingTop: "5rem", paddingBottom: "0", gap: "0" }}
+          className="flex flex-col items-center justify-start px-6 text-center"
+          style={{ paddingTop: "5rem", paddingBottom: "0", gap: "0" }}
         >
           <p className="fade-in-up" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.8rem, 5vw, 2.8rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
@@ -156,20 +156,16 @@ export default function Home() {
       <section id="join-us" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-10">
-            <div style={{ color: "#b76e79", fontSize: "1.5rem", marginBottom: "0.5rem" }}>✦ ❧ ✦</div>
             <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Join Us</h2>
             <p style={{ color: "#7a4a50", fontSize: "0.95rem", marginTop: "0.75rem" }}>
               Please register by <strong style={{ color: "#b76e79" }}>1 August 2026</strong>
             </p>
-            <div style={{ color: "#b76e79", fontSize: "1.5rem", marginTop: "0.5rem" }}>✦ ❧ ✦</div>
           </div>
 
           {rsvpSubmitted ? (
             <div className="text-center">
-              <div style={{ fontSize: "3rem", marginBottom: "1rem", color: "#b76e79" }}>✦</div>
               <h3 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "2rem", fontWeight: 300, marginBottom: "1rem" }}>See you on the 6th!</h3>
               <p style={{ color: "#7a4a50", fontSize: "1rem" }}>Thank you for registering. We can&apos;t wait to celebrate with you.</p>
-              <div style={{ fontSize: "3rem", marginTop: "1rem", color: "#b76e79" }}>✦</div>
             </div>
           ) : (
             <form onSubmit={handleRsvpSubmit}>
@@ -212,10 +208,8 @@ export default function Home() {
       <section id="program" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-12">
-            <div style={{ color: "#b76e79", fontSize: "1.5rem", marginBottom: "0.5rem" }}>✦ ❧ ✦</div>
             <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Program</h2>
             <p style={{ color: "#7a4a50", fontSize: "0.95rem", marginTop: "0.75rem", opacity: 0.8 }}>6 September 2026 &nbsp;·&nbsp; Küsnacht</p>
-            <div style={{ color: "#b76e79", fontSize: "1.5rem", marginTop: "0.75rem" }}>✦ ❧ ✦</div>
           </div>
           <div className="relative flex flex-col gap-8">
             <div style={{ position: "absolute", left: "5rem", top: 0, bottom: 0, width: "1px", background: "linear-gradient(to bottom, transparent, #b76e79 5%, #b76e79 95%, transparent)", opacity: 0.35 }} />
@@ -245,9 +239,7 @@ export default function Home() {
       {/* ── GALLERY ── */}
       <section id="gallery" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <div style={{ color: "#b76e79", fontSize: "1.5rem", marginBottom: "0.5rem" }}>✦ ❧ ✦</div>
           <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Gallery</h2>
-          <div style={{ color: "#b76e79", fontSize: "1.5rem", marginTop: "0.5rem" }}>✦ ❧ ✦</div>
           <div style={{ marginTop: "3rem", border: "1px solid rgba(183,110,121,0.3)", background: "rgba(183,110,121,0.06)", padding: "4rem 2rem" }}>
             <div style={{ fontSize: "4rem", marginBottom: "1.5rem" }}>📷</div>
             <p style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1.4rem", marginBottom: "0.75rem", fontWeight: 300 }}>Coming Soon</p>
@@ -264,9 +256,7 @@ export default function Home() {
       <section id="directions" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-10">
-            <div style={{ color: "#b76e79", fontSize: "1.5rem", marginBottom: "0.5rem" }}>✦ ❧ ✦</div>
             <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Directions</h2>
-            <div style={{ color: "#b76e79", fontSize: "1.5rem", marginTop: "0.5rem" }}>✦ ❧ ✦</div>
           </div>
           <div className="text-center mb-8 p-6" style={{ border: "1px solid rgba(183,110,121,0.4)", background: "rgba(183,110,121,0.06)" }}>
             <p style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1.3rem", marginBottom: "0.4rem" }}>Sonne — Boutiquehotel &amp; Seerestaurant</p>
@@ -298,10 +288,8 @@ export default function Home() {
       <section id="music" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-10">
-            <div style={{ color: "#b76e79", fontSize: "1.5rem", marginBottom: "0.5rem" }}>✦ ❧ ✦</div>
             <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Music</h2>
             <p style={{ color: "#7a4a50", fontSize: "0.95rem", marginTop: "0.75rem", lineHeight: 1.7 }}>What song should we play? Search and add your wish to our wedding playlist.</p>
-            <div style={{ color: "#b76e79", fontSize: "1.5rem", marginTop: "0.5rem" }}>✦ ❧ ✦</div>
           </div>
           <div className="mb-8">
             <div style={{ position: "relative" }}>
@@ -367,9 +355,7 @@ export default function Home() {
       {/* ── GIFTS ── */}
       <section id="gifts" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "6rem" }}>
         <div className="max-w-2xl mx-auto px-6 text-center">
-          <div style={{ color: "#b76e79", fontSize: "1.5rem", marginBottom: "0.5rem" }}>✦ ❧ ✦</div>
           <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Gifts</h2>
-          <div style={{ color: "#b76e79", fontSize: "1.5rem", marginTop: "0.5rem" }}>✦ ❧ ✦</div>
           <div style={{ marginTop: "3rem", border: "1px solid rgba(183,110,121,0.3)", background: "rgba(183,110,121,0.06)", padding: "4rem 2rem" }}>
             <div style={{ fontSize: "3.5rem", marginBottom: "1.5rem" }}>🎁</div>
             <p style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1.4rem", marginBottom: "1rem", fontWeight: 300 }}>Coming Soon</p>
