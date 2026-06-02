@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap');
 
 :root {
   --background: #fdf7f0;
@@ -27,6 +26,57 @@ body {
 
 .scroll-section {
   scroll-margin-top: 4.5rem;
+}
+
+/* ── Program icon animations ── */
+@keyframes clinkLeft {
+  0%, 100% { transform: rotate(-22deg); }
+  45%, 55% { transform: rotate(-4deg); }
+}
+@keyframes clinkRight {
+  0%, 100% { transform: rotate(22deg); }
+  45%, 55% { transform: rotate(4deg); }
+}
+@keyframes sparkle {
+  0%, 40%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1); }
+}
+@keyframes flicker {
+  0%, 100% { transform: scaleY(1) scaleX(1); }
+  30% { transform: scaleY(1.12) scaleX(0.88); }
+  60% { transform: scaleY(0.92) scaleX(1.08); }
+}
+@keyframes knifeSlice {
+  0%, 35%, 100% { transform: translateY(0) rotate(-30deg); }
+  18% { transform: translateY(11px) rotate(-30deg); }
+}
+@keyframes swayL {
+  0%, 100% { transform: rotate(-14deg); }
+  50% { transform: rotate(14deg); }
+}
+@keyframes swayR {
+  0%, 100% { transform: rotate(14deg); }
+  50% { transform: rotate(-14deg); }
+}
+@keyframes twinkleStar {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.15; transform: scale(0.6); }
+}
+@keyframes moonPulse {
+  0%, 100% { opacity: 0.75; }
+  50% { opacity: 1; }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+@keyframes frostDrip {
+  0%, 60%, 100% { transform: translateY(0); opacity: 1; }
+  30%           { transform: translateY(4px); opacity: 0.7; }
 }
 
 @keyframes dropdownOpen {

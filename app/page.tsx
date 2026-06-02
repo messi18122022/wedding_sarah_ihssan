@@ -38,6 +38,178 @@ const events = [
   { time: "00:00", title: "Last Dance", description: "One final dance to close a perfect evening", icon: "✨" },
 ];
 
+// ─── Program icons ───────────────────────────────────────────────────────────
+
+const c = "#6b5a45";
+const s = { strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
+
+function IconGlasses() {
+  // wider viewBox so glasses don't clip when swinging outward
+  return (
+    <svg width="72" height="52" viewBox="-10 0 72 52" fill="none" stroke={c} strokeWidth="1.6" {...s}>
+      {/* Left flute */}
+      <g style={{ transformOrigin: "14px 44px", animation: "clinkLeft 2.4s ease-in-out infinite" }}>
+        <path d="M10,8 L8,36 L20,36 L18,8 Z" />
+        <line x1="14" y1="36" x2="14" y2="44" />
+        <line x1="10" y1="44" x2="18" y2="44" />
+        <line x1="10" y1="12" x2="19" y2="12" strokeOpacity="0.4" />
+      </g>
+      {/* Right flute */}
+      <g style={{ transformOrigin: "38px 44px", animation: "clinkRight 2.4s ease-in-out infinite" }}>
+        <path d="M34,8 L32,36 L44,36 L42,8 Z" />
+        <line x1="38" y1="36" x2="38" y2="44" />
+        <line x1="34" y1="44" x2="42" y2="44" />
+        <line x1="33" y1="12" x2="42" y2="12" strokeOpacity="0.4" />
+      </g>
+      {/* Sparkle */}
+      <g style={{ transformOrigin: "26px 10px", animation: "sparkle 2.4s ease-in-out infinite" }}>
+        <line x1="26" y1="6" x2="26" y2="14" strokeWidth="1.2" />
+        <line x1="22" y1="10" x2="30" y2="10" strokeWidth="1.2" />
+        <line x1="23" y1="7" x2="29" y2="13" strokeWidth="1" />
+        <line x1="29" y1="7" x2="23" y2="13" strokeWidth="1" />
+      </g>
+    </svg>
+  );
+}
+
+function IconCandle() {
+  return (
+    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke={c} strokeWidth="1.6" {...s}>
+      {/* Flame */}
+      <path
+        d="M26,6 C24,10 21,13 21,17 C21,21 23,23 26,23 C29,23 31,21 31,17 C31,13 28,10 26,6 Z"
+        style={{ transformOrigin: "26px 17px", animation: "flicker 1.8s ease-in-out infinite" }}
+      />
+      {/* Candle body */}
+      <rect x="20" y="24" width="12" height="22" rx="1" />
+      {/* Wick */}
+      <line x1="26" y1="23" x2="26" y2="25" strokeWidth="1" />
+    </svg>
+  );
+}
+
+function IconCake() {
+  const fill1 = "rgba(107,90,69,0.13)";
+  const fill2 = "rgba(107,90,69,0.22)";
+  return (
+    <svg width="52" height="56" viewBox="0 0 52 56" fill="none" stroke={c} strokeWidth="1.3" {...s}>
+      <g style={{ transformOrigin: "26px 36px", animation: "float 3.2s ease-in-out infinite" }}>
+        {/* ── Bottom tier ── */}
+        <rect x="4" y="36" width="44" height="12" rx="1" fill={fill1} />
+        {/* 3-D top face ellipse */}
+        <ellipse cx="26" cy="36" rx="22" ry="5.5" fill={fill2} />
+        {/* Frosting drips */}
+        {[9,17,26,35,43].map((x,i) => (
+          <line key={i} x1={x} y1="36" x2={x} y2={38+i%2} stroke={c} strokeOpacity="0.5"
+                style={{ animation: `frostDrip ${2+i*0.3}s ease-in-out ${i*0.2}s infinite` }} />
+        ))}
+        {/* Dots row */}
+        {[12,20,26,32,40].map((x,i) => (
+          <circle key={i} cx={x} cy="42" r="1.2" fill={c} stroke="none" />
+        ))}
+
+        {/* ── Middle tier ── */}
+        <rect x="11" y="23" width="30" height="14" rx="1" fill={fill1} />
+        <ellipse cx="26" cy="23" rx="15" ry="4" fill={fill2} />
+        {[16,22,26,30,36].map((x,i) => (
+          <circle key={i} cx={x} cy="30" r="1" fill={c} stroke="none" opacity="0.7" />
+        ))}
+
+        {/* ── Top tier ── */}
+        <rect x="17" y="13" width="18" height="11" rx="1" fill={fill1} />
+        <ellipse cx="26" cy="13" rx="9" ry="2.5" fill={fill2} />
+
+        {/* ── Candle ── */}
+        <rect x="23.5" y="6" width="5" height="8" rx="0.8" fill="rgba(107,90,69,0.1)" />
+        {/* Flame */}
+        <path d="M26,1 C24.5,3 23,5.5 23,7.5 C23,9.5 24.5,11 26,11 C27.5,11 29,9.5 29,7.5 C29,5.5 27.5,3 26,1 Z"
+              fill={c} stroke="none"
+              style={{ transformOrigin: "26px 7.5px", animation: "flicker 1.6s ease-in-out infinite" }} />
+      </g>
+    </svg>
+  );
+}
+
+function IconDance() {
+  return (
+    <svg width="52" height="56" viewBox="0 0 52 56" fill="none" stroke={c} strokeWidth="1.2" {...s}>
+      <defs>
+        <clipPath id="discoclip">
+          <circle cx="26" cy="34" r="19" />
+        </clipPath>
+      </defs>
+      {/* Mount */}
+      <line x1="26" y1="0" x2="26" y2="15" strokeWidth="0.9" />
+      <line x1="21" y1="15" x2="31" y2="15" strokeWidth="0.9" />
+
+      {/* Ball fill */}
+      <circle cx="26" cy="34" r="19" fill="rgba(107,90,69,0.07)" />
+
+      {/* Tile grid — clipped to sphere */}
+      <g clipPath="url(#discoclip)" strokeOpacity="0.3" strokeWidth="0.7">
+        {[20,24,28,32,36,38,42,46].map(y => (
+          <line key={`h${y}`} x1="7" y1={y} x2="45" y2={y} />
+        ))}
+        {[11,15,19,23,26,29,33,37,41].map(x => (
+          <line key={`v${x}`} x1={x} y1="15" x2={x} y2="53" />
+        ))}
+      </g>
+
+      {/* Ball outline */}
+      <circle cx="26" cy="34" r="19" />
+
+      {/* Highlight arc — top sheen */}
+      <path d="M 12,24 A 18,18 0 0,1 40,24" strokeOpacity="0.2" strokeWidth="4" />
+
+      {/* Twinkling light reflections */}
+      {([
+        [19, 27, 2.2, 0],
+        [31, 24, 1.6, 0.5],
+        [22, 38, 1.9, 1.0],
+        [35, 33, 1.4, 0.3],
+        [16, 36, 1.3, 0.8],
+        [29, 42, 1.5, 1.3],
+      ] as [number,number,number,number][]).map(([x, y, r, delay]) => (
+        <circle key={`${x}${y}`} cx={x} cy={y} r={r} fill={c} stroke="none"
+                style={{ animation: `twinkleStar 1.8s ease-in-out ${delay}s infinite` }} />
+      ))}
+    </svg>
+  );
+}
+
+function IconMoon() {
+  return (
+    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke={c} strokeWidth="1.6" {...s}>
+      {/* Moon */}
+      <path
+        d="M22,8 C14,11 9,19 9,26 C9,35 17,43 26,43 C33,43 40,38 42,31 C38,33 33,33 29,30 C23,26 21,19 22,8 Z"
+        style={{ animation: "moonPulse 3s ease-in-out infinite" }}
+      />
+      {/* Stars */}
+      <g style={{ transformOrigin: "38px 12px", animation: "twinkleStar 2s ease-in-out infinite" }}>
+        <line x1="38" y1="9" x2="38" y2="15" strokeWidth="1.3" />
+        <line x1="35" y1="12" x2="41" y2="12" strokeWidth="1.3" />
+      </g>
+      <g style={{ transformOrigin: "44px 22px", animation: "twinkleStar 2s ease-in-out 0.7s infinite" }}>
+        <line x1="44" y1="20" x2="44" y2="24" strokeWidth="1.1" />
+        <line x1="42" y1="22" x2="46" y2="22" strokeWidth="1.1" />
+      </g>
+      <g style={{ transformOrigin: "34px 4px", animation: "twinkleStar 2s ease-in-out 1.4s infinite" }}>
+        <line x1="34" y1="2" x2="34" y2="6" strokeWidth="1.1" />
+        <line x1="32" y1="4" x2="36" y2="4" strokeWidth="1.1" />
+      </g>
+    </svg>
+  );
+}
+
+const programIcons: Record<string, () => React.ReactElement> = {
+  "Apéro": IconGlasses,
+  "Dinner": IconCandle,
+  "Cake Cutting": IconCake,
+  "Dance Party": IconDance,
+  "Last Dance": IconMoon,
+};
+
 // ─── Section divider ──────────────────────────────────────────────────────────
 
 function Divider() {
@@ -138,6 +310,25 @@ export default function Home() {
   // RSVP state
   const [count, setCount] = useState<number>(1);
   const [guests, setGuests] = useState<Guest[]>([{ first_name: "", last_name: "", meal: "Beef (Halal)", allergies: "" }]);
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const target = new Date('2026-09-06T15:00:00Z'); // 17:00 CEST
+    function tick() {
+      const diff = target.getTime() - Date.now();
+      if (diff <= 0) { setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 }); return; }
+      setTimeLeft({
+        days: Math.floor(diff / 86400000),
+        hours: Math.floor((diff / 3600000) % 24),
+        minutes: Math.floor((diff / 60000) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+      });
+    }
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(false);
   const [rsvpError, setRsvpError] = useState("");
@@ -243,6 +434,27 @@ export default function Home() {
               </p>
             </div>
           </div>
+
+          {/* Countdown */}
+          <div style={{ textAlign: "center", padding: "1.4rem 0 1.5rem", width: "100%" }}>
+            <div style={{ display: "flex", justifyContent: "center", gap: "clamp(1.2rem, 5vw, 2.5rem)" }}>
+              {([
+                { value: timeLeft.days, label: "Days" },
+                { value: timeLeft.hours, label: "Hours" },
+                { value: timeLeft.minutes, label: "Min" },
+                { value: timeLeft.seconds, label: "Sec" },
+              ] as const).map(({ value, label }) => (
+                <div key={label} style={{ textAlign: "center", minWidth: "3rem" }}>
+                  <div style={{ fontSize: "clamp(1.8rem, 7vw, 2.6rem)", fontWeight: 300, color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1 }}>
+                    {String(value).padStart(2, "0")}
+                  </div>
+                  <div style={{ fontSize: "0.62rem", letterSpacing: "0.2em", color: "#8a7060", textTransform: "uppercase", fontFamily: "'Jost', sans-serif", marginTop: "0.3rem" }}>
+                    {label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </main>
       </section>
 
@@ -305,27 +517,42 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Program</h2>
-            <p style={{ color: "#8a7060", fontSize: "0.95rem", marginTop: "0.75rem", opacity: 0.8 }}>6 September 2026 &nbsp;·&nbsp; Küsnacht</p>
           </div>
-          <div className="relative flex flex-col gap-8">
-            <div style={{ position: "absolute", left: "5rem", top: 0, bottom: 0, width: "1px", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.35 }} />
-            {events.map((event, i) => (
-              <div key={i} className="flex items-center gap-0">
-                <div style={{ width: "4.5rem", textAlign: "center", flexShrink: 0 }}>
-                  <span style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1rem", letterSpacing: "0.05em" }}>{event.time}</span>
-                </div>
-                <div style={{ position: "relative", zIndex: 1, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", width: "1rem" }}>
-                  <div style={{ width: 12, height: 12, background: "#6b5a45", transform: "rotate(45deg)" }} />
-                </div>
-                <div style={{ flex: 1, marginLeft: "1.25rem", border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.06)", padding: "0.9rem 1.1rem" }}>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span style={{ fontSize: "1.1rem" }}>{event.icon}</span>
-                    <h3 style={{ color: "#4a3728", fontFamily: "'Jost', sans-serif", fontSize: "1.05rem", fontWeight: 400 }}>{event.title}</h3>
+          {/* Grid: time | gap | line | gap(bigger) | icon | gap | title
+               1fr on time+title balances the icon at exactly 50% */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ position: "relative" }}>
+              {/* Vertical line — at left edge of the gap-to-icon column */}
+              <div style={{ position: "absolute", left: "6rem", top: 0, bottom: 0, width: "1px", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
+
+              {events.map((event, i) => {
+                const Icon = programIcons[event.title];
+                return (
+                  <div key={i} style={{ display: "grid", gridTemplateColumns: "6rem 2.5rem auto 8rem", alignItems: "center", padding: "0.55rem 0", position: "relative" }}>
+                    {/* Dot — centered exactly on the line (left: 6rem) */}
+                    <div style={{ position: "absolute", left: "6rem", top: "50%", transform: "translate(-50%, -50%)", width: 8, height: 8, borderRadius: "50%", background: "#6b5a45", opacity: 0.65, zIndex: 2 }} />
+                    {/* Time */}
+                    <div style={{ textAlign: "right", paddingRight: "0.75rem" }}>
+                      <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 300 }}>
+                        {event.time}
+                      </span>
+                    </div>
+                    {/* Gap col 2 */}
+                    <div />
+                    {/* Icon col 3 */}
+                    <div style={{ display: "flex", justifyContent: "center", position: "relative", zIndex: 1 }}>
+                      {Icon && <Icon />}
+                    </div>
+                    {/* Title col 4 */}
+                    <div style={{ paddingLeft: "1rem" }}>
+                      <span style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.4rem", fontWeight: 300, letterSpacing: "0.05em" }}>
+                        {event.title}
+                      </span>
+                    </div>
                   </div>
-                  <p style={{ color: "#8a7060", fontSize: "0.8rem", lineHeight: 1.6 }}>{event.description}</p>
-                </div>
-              </div>
-            ))}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
@@ -337,7 +564,21 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Gallery</h2>
           <div style={{ marginTop: "3rem", border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.06)", padding: "4rem 2rem" }}>
-            <div style={{ fontSize: "4rem", marginBottom: "1.5rem" }}>📷</div>
+            <div style={{ marginBottom: "1.5rem", display: "flex", justifyContent: "center" }}>
+              <svg width="64" height="56" viewBox="0 0 64 56" fill="none" stroke="#6b5a45" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                {/* Camera body */}
+                <rect x="4" y="16" width="56" height="36" rx="4" />
+                {/* Lens */}
+                <circle cx="32" cy="34" r="12" />
+                <circle cx="32" cy="34" r="7" />
+                {/* Viewfinder bump */}
+                <path d="M22,16 L22,10 L30,6 L34,6 L42,10 L42,16" />
+                {/* Flash */}
+                <rect x="48" y="22" width="7" height="5" rx="1" />
+                {/* Shutter button */}
+                <circle cx="32" cy="34" r="2.5" fill="#6b5a45" stroke="none" />
+              </svg>
+            </div>
             <p style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.4rem", marginBottom: "0.75rem", fontWeight: 300 }}>Coming Soon</p>
             <p style={{ color: "#8a7060", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: "400px", margin: "0 auto" }}>
               After the big day, this is where all the beautiful memories will live. Check back after 6 September 2026.
@@ -429,7 +670,24 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Gifts</h2>
           <div style={{ marginTop: "3rem", border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.06)", padding: "4rem 2rem" }}>
-            <div style={{ fontSize: "3.5rem", marginBottom: "1.5rem" }}>🎁</div>
+            <div style={{ marginBottom: "1.5rem", display: "flex", justifyContent: "center" }}>
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#6b5a45" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                {/* Box body */}
+                <rect x="6" y="26" width="48" height="30" rx="2" />
+                {/* Lid */}
+                <rect x="4" y="18" width="52" height="10" rx="2" />
+                {/* Vertical ribbon */}
+                <line x1="30" y1="18" x2="30" y2="56" />
+                {/* Horizontal ribbon on lid */}
+                <line x1="4" y1="23" x2="56" y2="23" />
+                {/* Bow left loop */}
+                <path d="M30,18 C26,14 18,10 16,14 C14,18 22,20 30,18" />
+                {/* Bow right loop */}
+                <path d="M30,18 C34,14 42,10 44,14 C46,18 38,20 30,18" />
+                {/* Bow knot */}
+                <circle cx="30" cy="18" r="2" fill="#6b5a45" stroke="none" />
+              </svg>
+            </div>
             <p style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.4rem", marginBottom: "1rem", fontWeight: 300 }}>Coming Soon</p>
             <p style={{ color: "#8a7060", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: "420px", margin: "0 auto" }}>
               Your presence at our wedding is the greatest gift of all. If you wish to contribute to our honeymoon or future together, a gift option will be available here soon.
