@@ -6,7 +6,7 @@ import { supabase } from "@/lib/supabase";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
-type Guest = { first_name: string; last_name: string; meal: string };
+type Guest = { first_name: string; last_name: string; meal: string; allergies: string };
 type Track = { trackId: number; trackName: string; artistName: string; artworkUrl100: string };
 type Wish = { song_title: string; artist: string; cover_url: string };
 
@@ -134,7 +134,7 @@ export default function Home() {
 
   // RSVP state
   const [count, setCount] = useState<number>(1);
-  const [guests, setGuests] = useState<Guest[]>([{ first_name: "", last_name: "", meal: "Beef (Halal)" }]);
+  const [guests, setGuests] = useState<Guest[]>([{ first_name: "", last_name: "", meal: "Beef (Halal)", allergies: "" }]);
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(false);
   const [rsvpError, setRsvpError] = useState("");
@@ -177,7 +177,7 @@ export default function Home() {
     setCount(newCount);
     setGuests((prev) => {
       const updated = [...prev];
-      while (updated.length < newCount) updated.push({ first_name: "", last_name: "", meal: "Beef (Halal)" });
+      while (updated.length < newCount) updated.push({ first_name: "", last_name: "", meal: "Beef (Halal)", allergies: "" });
       return updated.slice(0, newCount);
     });
   }
@@ -281,12 +281,13 @@ export default function Home() {
                       <input type="text" placeholder="Last Name" value={guest.last_name} onChange={(e) => handleGuestChange(i, "last_name", e.target.value)} style={{ background: "#fff", border: "1px solid rgba(183,110,121,0.3)", color: "#3d2020", padding: "0.6rem 0.75rem", fontSize: "0.9rem", outline: "none", fontFamily: "Georgia, serif" }} />
                       <MealDropdown value={guest.meal} onChange={(v) => handleGuestChange(i, "meal", v)} />
                     </div>
+                    <input type="text" placeholder="Any allergies?" value={guest.allergies} onChange={(e) => handleGuestChange(i, "allergies", e.target.value)} style={{ marginTop: "0.6rem", width: "100%", background: "#fff", border: "1px solid rgba(183,110,121,0.3)", color: "#3d2020", padding: "0.6rem 0.75rem", fontSize: "0.9rem", outline: "none", fontFamily: "Georgia, serif", boxSizing: "border-box" }} />
                   </div>
                 ))}
               </div>
               {rsvpError && <p style={{ color: "#c0504d", fontSize: "0.9rem", marginBottom: "1rem" }}>{rsvpError}</p>}
               <button type="submit" disabled={rsvpLoading} style={{ width: "100%", padding: "1rem", background: "rgba(183,110,121,0.12)", border: "1px solid #b76e79", color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1rem", letterSpacing: "0.2em", textTransform: "uppercase", cursor: rsvpLoading ? "not-allowed" : "pointer" }}>
-                {rsvpLoading ? "Sending..." : "Confirm Attendance"}
+                {rsvpLoading ? "Sending..." : "Confirm"}
               </button>
             </form>
           )}
