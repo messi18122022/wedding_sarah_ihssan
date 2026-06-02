@@ -26,15 +26,15 @@ export default function Navbar() {
         left: 0,
         right: 0,
         zIndex: 50,
-        background: "rgba(20, 8, 4, 0.95)",
+        background: "rgba(253,248,245,0.95)",
         backdropFilter: "blur(8px)",
-        borderBottom: "2px solid #c9a84c",
-        borderTop: "3px solid #c9a84c",
+        borderBottom: "2px solid #b76e79",
+        borderTop: "3px solid #b76e79",
       }}
     >
       <div className="max-w-5xl mx-auto px-6 flex items-center justify-between" style={{ height: "4.5rem" }}>
         {/* Logo */}
-        <Link href="/" style={{ color: "#c9a84c", fontFamily: "Georgia, serif", fontSize: "1.3rem", letterSpacing: "0.15em" }}>
+        <Link href="/" style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1.3rem", letterSpacing: "0.15em" }}>
           S &amp; I
         </Link>
 
@@ -45,11 +45,11 @@ export default function Navbar() {
               key={href}
               href={href}
               style={{
-                color: pathname === href ? "#c9a84c" : "#e8d5a3",
+                color: pathname === href ? "#b76e79" : "#7a4a50",
                 fontSize: "0.85rem",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                borderBottom: pathname === href ? "1px solid #c9a84c" : "1px solid transparent",
+                borderBottom: pathname === href ? "1px solid #b76e79" : "1px solid transparent",
                 paddingBottom: "2px",
                 transition: "color 0.2s",
                 fontFamily: "Georgia, serif",
@@ -66,9 +66,9 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
-          <span style={{ display: "block", width: 22, height: 1.5, background: "#c9a84c" }}/>
-          <span style={{ display: "block", width: 22, height: 1.5, background: "#c9a84c" }}/>
-          <span style={{ display: "block", width: 22, height: 1.5, background: "#c9a84c" }}/>
+          <span style={{ display: "block", width: 22, height: 1.5, background: "#b76e79" }}/>
+          <span style={{ display: "block", width: 22, height: 1.5, background: "#b76e79" }}/>
+          <span style={{ display: "block", width: 22, height: 1.5, background: "#b76e79" }}/>
         </button>
       </div>
 
@@ -76,7 +76,7 @@ export default function Navbar() {
       {open && (
         <div
           className="md:hidden flex flex-col items-center gap-6 py-6"
-          style={{ borderTop: "1px solid rgba(201,168,76,0.2)" }}
+          style={{ borderTop: "1px solid rgba(183,110,121,0.2)" }}
         >
           {links.map(({ href, label }) => (
             <Link
@@ -84,7 +84,7 @@ export default function Navbar() {
               href={href}
               onClick={() => setOpen(false)}
               style={{
-                color: pathname === href ? "#c9a84c" : "#e8d5a3",
+                color: pathname === href ? "#b76e79" : "#7a4a50",
                 fontSize: "0.8rem",
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",

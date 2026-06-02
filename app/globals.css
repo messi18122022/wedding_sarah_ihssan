@@ -1,23 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf7f2;
-  --foreground: #2c1810;
-  --gold: #c9a84c;
-  --gold-light: #e8d5a3;
-  --burgundy: #7b2d3e;
-  --cream: #faf7f2;
-  --dark: #2c1810;
+  --background: #fdf8f5;
+  --foreground: #3d2020;
+  --rose: #b76e79;
+  --rose-light: #e8c0c5;
+  --champagne: #c9a87a;
+  --champagne-light: #f0e5d5;
+  --cream: #fdf8f5;
+  --text-soft: #7a4a50;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-gold: var(--gold);
-  --color-gold-light: var(--gold-light);
-  --color-burgundy: var(--burgundy);
+  --color-rose: var(--rose);
+  --color-rose-light: var(--rose-light);
+  --color-champagne: var(--champagne);
+  --color-champagne-light: var(--champagne-light);
   --color-cream: var(--cream);
-  --color-dark: var(--dark);
 }
 
 body {
@@ -30,13 +31,13 @@ body {
 .ornament::before,
 .ornament::after {
   content: "❧";
-  color: var(--gold);
+  color: var(--rose);
   margin: 0 1rem;
 }
 
 /* Arabesque border pattern */
 .arabesque-border {
-  border: 2px solid var(--gold);
+  border: 2px solid var(--rose);
   position: relative;
 }
 
@@ -48,7 +49,7 @@ body {
   transform: translateX(-50%);
   background: var(--cream);
   padding: 0 8px;
-  color: var(--gold);
+  color: var(--rose);
   font-size: 1.2rem;
 }
 
