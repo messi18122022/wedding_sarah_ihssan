@@ -99,6 +99,8 @@ function MealDropdown({ value, onChange }: { value: string; onChange: (v: string
           border: "1px solid rgba(183,110,121,0.3)",
           borderTop: "none",
           zIndex: 10,
+          animation: "dropdownOpen 0.2s ease both",
+          boxShadow: "0 4px 16px rgba(183,110,121,0.12)",
         }}>
           {MEALS.map((meal) => (
             <button
@@ -246,7 +248,7 @@ export default function Home() {
       <Divider />
 
       {/* ── JOIN US ── */}
-      <section id="join-us" className="scroll-section" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
+      <section id="join-us" className="scroll-section" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem", minHeight: "60vh" }}>
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Join Us</h2>
@@ -256,7 +258,8 @@ export default function Home() {
           </div>
 
           {rsvpSubmitted ? (
-            <div className="text-center">
+            <div className="text-center" style={{ animation: "fadeIn 0.8s ease both", padding: "3rem 0" }}>
+              <div style={{ fontSize: "2.5rem", marginBottom: "1rem", color: "#b76e79" }}>✦</div>
               <h3 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "2rem", fontWeight: 300, marginBottom: "1rem" }}>See you on the 6th!</h3>
               <p style={{ color: "#7a4a50", fontSize: "1rem" }}>Thank you for registering. We can&apos;t wait to celebrate with you.</p>
             </div>
