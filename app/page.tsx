@@ -14,9 +14,6 @@ export default function Home() {
         <p className="fade-in-up" style={{ color: "#b76e79", fontFamily: "serif", fontSize: "clamp(1.5rem, 4vw, 2.4rem)", marginBottom: "0.3rem" }}>
           بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
         </p>
-        <p className="fade-in-up tracking-wider italic" style={{ fontSize: "1rem", color: "#7a4a50", marginBottom: "1.4rem" }}>
-          In the name of God, the Most Gracious, the Most Merciful
-        </p>
 
         {/* Video */}
         <div
@@ -42,14 +39,14 @@ export default function Home() {
 
         {/* Date & Location */}
         <p
-          className="fade-in-up-delay tracking-[0.3em] uppercase"
-          style={{ fontSize: "1.4rem", color: "#3d2020", marginBottom: "0.4rem" }}
+          className="fade-in-up-delay tracking-[0.2em] uppercase"
+          style={{ fontSize: "1rem", color: "#3d2020", marginBottom: "0.3rem" }}
         >
-          6 September 2026<br />17:00
+          6 September 2026 &nbsp;·&nbsp; 17:00
         </p>
         <p
           className="fade-in-up-delay tracking-wider"
-          style={{ fontSize: "1.2rem", color: "#7a4a50", letterSpacing: "0.15em" }}
+          style={{ fontSize: "0.85rem", color: "#7a4a50", letterSpacing: "0.1em" }}
         >
           Sonne Boutiquehotel &amp; Seerestaurant<br />Seestrasse 120, 8700 Küsnacht
         </p>
