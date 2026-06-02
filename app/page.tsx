@@ -13,10 +13,10 @@ type Wish = { song_title: string; artist: string; cover_url: string };
 // ─── Data ────────────────────────────────────────────────────────────────────
 
 const PARKING = [
-  { name: "Parking", lat: 47.3176693, lng: 8.5805212 },
-  { name: "Parkplatz", lat: 47.3177522, lng: 8.581487 },
-  { name: "Parkplatz Zürichstrasse", lat: 47.3189029, lng: 8.5815061 },
-  { name: "SBB P+Rail Küsnacht ZH", lat: 47.3205211, lng: 8.5799631 },
+  { name: "Parking", distance: "4 min (250 m)", lat: 47.3176693, lng: 8.5805212 },
+  { name: "Parkplatz", distance: "7 min (350 m)", lat: 47.3177522, lng: 8.581487 },
+  { name: "Parkplatz Zürichstrasse", distance: "5 min (260 m)", lat: 47.3189029, lng: 8.5815061 },
+  { name: "SBB P+Rail Küsnacht ZH", distance: "4 min (250 m)", lat: 47.3205211, lng: 8.5799631 },
 ];
 
 const MEALS = [
@@ -655,9 +655,14 @@ export default function Home() {
 
             {/* Name + dots */}
             <div style={{ marginTop: "0.75rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-              <p style={{ color: "#4a3728", fontFamily: "'Jost', sans-serif", fontSize: "0.9rem", fontWeight: 300 }}>
-                {PARKING[parkingIdx].name}
-              </p>
+              <div>
+                <p style={{ color: "#4a3728", fontFamily: "'Jost', sans-serif", fontSize: "0.9rem", fontWeight: 300, marginBottom: "0.1rem" }}>
+                  {PARKING[parkingIdx].name}
+                </p>
+                <p style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.78rem", fontWeight: 200, letterSpacing: "0.05em" }}>
+                  🚶 {PARKING[parkingIdx].distance}
+                </p>
+              </div>
               <div style={{ display: "flex", gap: "0.4rem" }}>
                 {PARKING.map((_, i) => (
                   <button
