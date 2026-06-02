@@ -777,6 +777,29 @@ export default function Home() {
         </div>
       </section>
 
+      <Divider />
+
+      {/* ── A NOTE FROM US ── */}
+      <section id="note" className="scroll-section" style={{ background: "#fdf7f0", paddingTop: "4rem", paddingBottom: "6rem" }}>
+        <div className="max-w-xl mx-auto px-6 text-center">
+          <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em", marginBottom: "2rem" }}>
+            A Note from Us
+          </h2>
+          <p style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(1.15rem, 3vw, 1.4rem)", fontWeight: 300, lineHeight: 1.9, fontStyle: "italic", marginBottom: "1.5rem" }}>
+            There are people in life whose presence turns an ordinary moment into something you carry with you forever. You are those people to us.
+          </p>
+          <p style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(1.15rem, 3vw, 1.4rem)", fontWeight: 300, lineHeight: 1.9, fontStyle: "italic", marginBottom: "1.5rem" }}>
+            On the 6th of September, we will stand before the people we love most and say the words we have always meant. That you will be there — witnessing, celebrating, dancing with us — means more than we can say.
+          </p>
+          <p style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(1.15rem, 3vw, 1.4rem)", fontWeight: 300, lineHeight: 1.9, fontStyle: "italic" }}>
+            We cannot wait to welcome you with open arms.
+          </p>
+          <p style={{ color: "#6b5a45", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.3rem", fontWeight: 300, marginTop: "2rem", letterSpacing: "0.08em" }}>
+            — Sarah &amp; Ihssan
+          </p>
+        </div>
+      </section>
+
     </div>
   );
 }

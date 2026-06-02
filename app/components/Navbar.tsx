@@ -9,6 +9,7 @@ const links = [
   { id: "directions", label: "Directions" },
   { id: "music", label: "Music" },
   { id: "gifts", label: "Gifts" },
+  { id: "note", label: "A Note" },
 ];
 
 export default function Navbar() {
