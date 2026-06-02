@@ -49,7 +49,7 @@ export default function Navbar() {
         borderTop: "3px solid #b76e79",
       }}
     >
-      <div className="max-w-5xl mx-auto px-6 flex items-center justify-between" style={{ height: "4.5rem" }}>
+      <div className="max-w-5xl mx-auto px-6 flex items-center justify-between" style={{ height: "4.5rem", position: "relative" }}>
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
@@ -57,6 +57,27 @@ export default function Navbar() {
         >
           S &amp; I
         </button>
+
+        {/* Active section title — animates in on scroll */}
+        {active && (
+          <div
+            key={active}
+            style={{
+              position: "absolute",
+              left: "50%",
+              transform: "translateX(-50%)",
+              animation: "slideInNav 0.35s ease both",
+              color: "#b76e79",
+              fontFamily: "Georgia, serif",
+              fontSize: "0.9rem",
+              letterSpacing: "0.25em",
+              textTransform: "uppercase",
+              pointerEvents: "none",
+            }}
+          >
+            {links.find((l) => l.id === active)?.label}
+          </div>
+        )}
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
