@@ -441,15 +441,15 @@ export default function Home() {
             <p style={{ color: "#8a7060", fontSize: "0.95rem", marginTop: "0.75rem", opacity: 0.8 }}>6 September 2026 &nbsp;·&nbsp; Küsnacht</p>
           </div>
           <div className="relative flex flex-col">
-            {/* Vertical line */}
-            <div style={{ position: "absolute", left: "calc(4.5rem + 36px)", top: 0, bottom: 0, width: "1px", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
+            {/* Vertical line — sits between time and icon */}
+            <div style={{ position: "absolute", left: "4.5rem", top: 0, bottom: 0, width: "1px", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
             {events.map((event, i) => {
               const Icon = programIcons[event.title];
               return (
                 <div key={i} style={{ display: "flex", alignItems: "center", padding: "0.6rem 0" }}>
                   {/* Time */}
                   <div style={{ width: "4.5rem", textAlign: "right", flexShrink: 0, paddingRight: "0.75rem" }}>
-                    <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 200 }}>
+                    <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 300 }}>
                       {event.time}
                     </span>
                   </div>
