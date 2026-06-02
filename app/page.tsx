@@ -436,8 +436,8 @@ export default function Home() {
           </div>
 
           {/* Countdown */}
-          <div style={{ textAlign: "center", padding: "1.2rem 0 0.5rem" }}>
-            <div style={{ display: "flex", justifyContent: "center", gap: "clamp(1rem, 5vw, 2.5rem)" }}>
+          <div style={{ textAlign: "center", padding: "1.4rem 0 1.5rem", width: "100%" }}>
+            <div style={{ display: "flex", justifyContent: "center", gap: "clamp(1.2rem, 5vw, 2.5rem)" }}>
               {([
                 { value: timeLeft.days, label: "Days" },
                 { value: timeLeft.hours, label: "Hours" },
@@ -445,10 +445,10 @@ export default function Home() {
                 { value: timeLeft.seconds, label: "Sec" },
               ] as const).map(({ value, label }) => (
                 <div key={label} style={{ textAlign: "center", minWidth: "3rem" }}>
-                  <div style={{ fontSize: "clamp(1.6rem, 6vw, 2.4rem)", fontWeight: 300, color: "#fff", fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1 }}>
+                  <div style={{ fontSize: "clamp(1.8rem, 7vw, 2.6rem)", fontWeight: 300, color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1 }}>
                     {String(value).padStart(2, "0")}
                   </div>
-                  <div style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", fontFamily: "'Jost', sans-serif", marginTop: "0.25rem" }}>
+                  <div style={{ fontSize: "0.62rem", letterSpacing: "0.2em", color: "#8a7060", textTransform: "uppercase", fontFamily: "'Jost', sans-serif", marginTop: "0.3rem" }}>
                     {label}
                   </div>
                 </div>
@@ -528,17 +528,17 @@ export default function Home() {
               {events.map((event, i) => {
                 const Icon = programIcons[event.title];
                 return (
-                  <div key={i} style={{ display: "grid", gridTemplateColumns: "6rem 2.5rem auto 8rem", alignItems: "center", padding: "0.55rem 0" }}>
-                    {/* Time — right-aligned in col 1 */}
+                  <div key={i} style={{ display: "grid", gridTemplateColumns: "6rem 2.5rem auto 8rem", alignItems: "center", padding: "0.55rem 0", position: "relative" }}>
+                    {/* Dot — centered exactly on the line (left: 6rem) */}
+                    <div style={{ position: "absolute", left: "6rem", top: "50%", transform: "translate(-50%, -50%)", width: 8, height: 8, borderRadius: "50%", background: "#6b5a45", opacity: 0.65, zIndex: 2 }} />
+                    {/* Time */}
                     <div style={{ textAlign: "right", paddingRight: "0.75rem" }}>
                       <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 300 }}>
                         {event.time}
                       </span>
                     </div>
-                    {/* Gap col 2 — dot centered on the line */}
-                    <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
-                      <div style={{ position: "absolute", left: 0, transform: "translateX(-50%)", width: 7, height: 7, borderRadius: "50%", background: "#6b5a45", opacity: 0.55 }} />
-                    </div>
+                    {/* Gap col 2 */}
+                    <div />
                     {/* Icon col 3 */}
                     <div style={{ display: "flex", justifyContent: "center", position: "relative", zIndex: 1 }}>
                       {Icon && <Icon />}
