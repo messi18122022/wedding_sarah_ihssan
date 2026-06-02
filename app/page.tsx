@@ -337,6 +337,21 @@ export default function Home() {
   }, []);
 
   const [parkingIdx, setParkingIdx] = useState(0);
+  const parkingTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  useEffect(() => {
+    parkingTimer.current = setInterval(() => setParkingIdx((i) => (i + 1) % PARKING.length), 4000);
+    return () => { if (parkingTimer.current) clearInterval(parkingTimer.current); };
+  }, []);
+
+  function stopParkingTimer() {
+    if (parkingTimer.current) { clearInterval(parkingTimer.current); parkingTimer.current = null; }
+  }
+
+  function parkingNav(dir: 1 | -1) {
+    stopParkingTimer();
+    setParkingIdx((i) => (i + dir + PARKING.length) % PARKING.length);
+  }
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(false);
   const [rsvpError, setRsvpError] = useState("");
@@ -423,7 +438,7 @@ export default function Home() {
           className="flex flex-col items-center justify-start px-6 text-center"
           style={{ paddingTop: "5rem", paddingBottom: "0", gap: "0" }}
         >
-          <p className="fade-in-up" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.8rem, 5vw, 2.8rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
+          <p className="fade-in-up" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.2rem, 3.5vw, 1.9rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </p>
           <h1 className="fade-in-up font-light" style={{ color: "#fff", fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", letterSpacing: "0.1em", fontSize: "clamp(2rem, 8vw, 4rem)", lineHeight: 1.1, marginBottom: "0.6rem" }}>
@@ -608,7 +623,7 @@ export default function Home() {
             <p style={{ color: "#8a7060", fontSize: "1rem", letterSpacing: "0.1em" }}>Seestrasse 120, 8700 Küsnacht</p>
           </div>
           <div className="mb-8 overflow-hidden" style={{ border: "2px solid rgba(107,90,69,0.4)", aspectRatio: "16/9" }}>
-            <iframe src="https://www.google.com/maps?q=Seestrasse+120,+8700+Küsnacht&output=embed" width="100%" height="100%" style={{ border: 0, display: "block" }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+            <iframe src="https://www.google.com/maps?q=47.318961,8.578781&z=17&output=embed" width="100%" height="100%" style={{ border: 0, display: "block", pointerEvents: "none" }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </div>
           <div className="mb-6">
             <div style={{ border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.05)", padding: "1.5rem" }}>
@@ -618,27 +633,29 @@ export default function Home() {
           </div>
           {/* Parking slider */}
           <div style={{ border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.05)", padding: "1.25rem" }}>
-            <h3 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.1rem", marginBottom: "1rem", letterSpacing: "0.1em" }}>Parking</h3>
+            <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "1rem" }}>
+              <h3 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.1rem", letterSpacing: "0.1em" }}>Parking</h3>
+              <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.72rem", fontWeight: 200, letterSpacing: "0.05em" }}>slide through all 4 options</span>
+            </div>
 
             {/* Map with arrows */}
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
               {/* Left arrow */}
               <button
-                onClick={() => setParkingIdx((i) => (i - 1 + PARKING.length) % PARKING.length)}
-                style={{ flexShrink: 0, background: "none", border: "1px solid rgba(107,90,69,0.4)", color: "#6b5a45", width: 36, height: 36, cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}
+                onClick={() => parkingNav(-1)}
+                style={{ flexShrink: 0, background: "rgba(107,90,69,0.1)", border: "1px solid rgba(107,90,69,0.7)", color: "#4a3728", width: 36, height: 36, cursor: "pointer", fontSize: "1.2rem", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 400 }}
               >
                 ‹
               </button>
 
-              {/* Map */}
-              <div style={{ flex: 1, overflow: "hidden", border: "1px solid rgba(107,90,69,0.2)", aspectRatio: "4/3" }}>
+              {/* Map — stop timer on any interaction */}
+              <div onMouseEnter={stopParkingTimer} onTouchStart={stopParkingTimer} style={{ flex: 1, overflow: "hidden", border: "1px solid rgba(107,90,69,0.2)", aspectRatio: "4/3" }}>
                 <iframe
                   key={parkingIdx}
                   src={`https://www.google.com/maps?q=${PARKING[parkingIdx].lat},${PARKING[parkingIdx].lng}&z=17&output=embed`}
                   width="100%"
                   height="100%"
-                  style={{ border: 0, display: "block" }}
-                  allowFullScreen
+                  style={{ border: 0, display: "block", pointerEvents: "none" }}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
@@ -646,8 +663,8 @@ export default function Home() {
 
               {/* Right arrow */}
               <button
-                onClick={() => setParkingIdx((i) => (i + 1) % PARKING.length)}
-                style={{ flexShrink: 0, background: "none", border: "1px solid rgba(107,90,69,0.4)", color: "#6b5a45", width: 36, height: 36, cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}
+                onClick={() => parkingNav(1)}
+                style={{ flexShrink: 0, background: "rgba(107,90,69,0.1)", border: "1px solid rgba(107,90,69,0.7)", color: "#4a3728", width: 36, height: 36, cursor: "pointer", fontSize: "1.2rem", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 400 }}
               >
                 ›
               </button>
@@ -667,7 +684,7 @@ export default function Home() {
                 {PARKING.map((_, i) => (
                   <button
                     key={i}
-                    onClick={() => setParkingIdx(i)}
+                    onClick={() => { stopParkingTimer(); setParkingIdx(i); }}
                     style={{ width: 7, height: 7, borderRadius: "50%", background: "#6b5a45", opacity: i === parkingIdx ? 0.8 : 0.2, border: "none", cursor: "pointer", padding: 0 }}
                   />
                 ))}
