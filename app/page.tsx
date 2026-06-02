@@ -153,7 +153,7 @@ export default function Home() {
       <Divider />
 
       {/* ── JOIN US ── */}
-      <section id="join-us" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
+      <section id="join-us" className="scroll-section" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Join Us</h2>
@@ -205,7 +205,7 @@ export default function Home() {
       <Divider />
 
       {/* ── PROGRAM ── */}
-      <section id="program" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
+      <section id="program" className="scroll-section" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Program</h2>
@@ -237,7 +237,7 @@ export default function Home() {
       <Divider />
 
       {/* ── GALLERY ── */}
-      <section id="gallery" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
+      <section id="gallery" className="scroll-section" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Gallery</h2>
           <div style={{ marginTop: "3rem", border: "1px solid rgba(183,110,121,0.3)", background: "rgba(183,110,121,0.06)", padding: "4rem 2rem" }}>
@@ -253,7 +253,7 @@ export default function Home() {
       <Divider />
 
       {/* ── DIRECTIONS ── */}
-      <section id="directions" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
+      <section id="directions" className="scroll-section" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Directions</h2>
@@ -285,7 +285,7 @@ export default function Home() {
       <Divider />
 
       {/* ── MUSIC ── */}
-      <section id="music" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
+      <section id="music" className="scroll-section" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "4rem" }}>
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Music</h2>
@@ -353,7 +353,7 @@ export default function Home() {
       <Divider />
 
       {/* ── GIFTS ── */}
-      <section id="gifts" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "6rem" }}>
+      <section id="gifts" className="scroll-section" style={{ background: "#fdf8f5", paddingTop: "4rem", paddingBottom: "6rem" }}>
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Gifts</h2>
           <div style={{ marginTop: "3rem", border: "1px solid rgba(183,110,121,0.3)", background: "rgba(183,110,121,0.06)", padding: "4rem 2rem" }}>
