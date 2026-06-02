@@ -766,7 +766,7 @@ export default function Home() {
 
             {/* Text */}
             <p style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(1.1rem, 3vw, 1.3rem)", fontStyle: "italic", fontWeight: 300, lineHeight: 1.8, maxWidth: "420px", margin: "0 auto 2rem" }}>
-              Your presence is the greatest gift of all. If you would like to contribute to our future together, we are grateful for every gesture of love.
+              Your presence is the greatest gift of all. If you would like to contribute to our honeymoon, we are grateful for every gesture of love.
             </p>
 
             {/* Revolut button */}
