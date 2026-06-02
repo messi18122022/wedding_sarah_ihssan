@@ -1,19 +1,21 @@
 export default function Home() {
+  const seaBlue = "#5879a2";
+
   return (
-    <div style={{ minHeight: "100vh", background: "#fdf8f5" }}>
+    <div style={{ minHeight: "100vh", background: seaBlue }}>
       <main
         className="flex flex-col items-center justify-center px-6 text-center"
-        style={{ minHeight: "100vh", paddingTop: "5rem", paddingBottom: "2rem", gap: "0" }}
+        style={{ minHeight: "100vh", paddingTop: "5rem", paddingBottom: "0", gap: "0" }}
       >
         {/* Bismillah */}
-        <p className="fade-in-up" style={{ color: "#b76e79", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.8rem, 5vw, 2.8rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
+        <p className="fade-in-up" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.8rem, 5vw, 2.8rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
           بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
         </p>
 
         {/* Names */}
         <h1
           className="fade-in-up font-light"
-          style={{ color: "#b76e79", fontFamily: "'Cormorant Garamond', Georgia, serif", letterSpacing: "0.1em", fontSize: "clamp(2rem, 8vw, 4rem)", lineHeight: 1.1, marginBottom: "0.4rem" }}
+          style={{ color: "#fff", fontFamily: "'Cormorant Garamond', Georgia, serif", letterSpacing: "0.1em", fontSize: "clamp(2rem, 8vw, 4rem)", lineHeight: 1.1, marginBottom: "0.6rem" }}
         >
           Sarah &amp; Ihssan
         </h1>
@@ -27,9 +29,20 @@ export default function Home() {
             maxWidth: "520px",
             marginLeft: "calc(-50vw + 50%)",
             marginRight: "calc(-50vw + 50%)",
-            marginTop: "1rem",
           }}
         >
+          {/* Top fade: sea blue → transparent, bleeds into video */}
+          <div style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            height: "35%",
+            background: `linear-gradient(to bottom, ${seaBlue}, transparent)`,
+            zIndex: 1,
+            pointerEvents: "none",
+          }} />
+
           <video
             src="/video.mp4"
             autoPlay
@@ -38,7 +51,8 @@ export default function Home() {
             playsInline
             style={{ width: "100%", display: "block", objectFit: "cover" }}
           />
-          {/* Gradient overlay so text is readable */}
+
+          {/* Bottom fade for text readability */}
           <div style={{
             position: "absolute",
             bottom: 0,
@@ -48,6 +62,7 @@ export default function Home() {
             background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.55))",
             pointerEvents: "none",
           }} />
+
           {/* Text overlay */}
           <div style={{
             position: "absolute",
@@ -56,6 +71,7 @@ export default function Home() {
             right: 0,
             textAlign: "center",
             padding: "0 1rem",
+            zIndex: 2,
           }}>
             <p style={{ fontSize: "1.1rem", color: "#fff", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.25rem", fontFamily: "Georgia, serif" }}>
               6 September 2026 &nbsp;<span style={{ fontWeight: 200, opacity: 0.7 }}>|</span>&nbsp; 17:00
