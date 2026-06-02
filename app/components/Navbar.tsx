@@ -115,7 +115,7 @@ export default function Navbar() {
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
                 fontFamily: "'Jost', sans-serif",
-                fontWeight: 200,
+                fontWeight: 500,
                 background: "none",
                 border: "none",
                 cursor: "pointer",
