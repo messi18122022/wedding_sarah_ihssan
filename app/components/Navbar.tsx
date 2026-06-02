@@ -53,7 +53,7 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          style={{ color: "#b76e79", fontFamily: "'Great Vibes', cursive", fontSize: "2.2rem", background: "none", border: "none", cursor: "pointer", lineHeight: 1, paddingBottom: "2px" }}
+          style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1.3rem", letterSpacing: "0.15em", background: "none", border: "none", cursor: "pointer" }}
         >
           S &amp; I
         </button>
