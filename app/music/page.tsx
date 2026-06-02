@@ -87,19 +87,19 @@ export default function Music() {
   }
 
   return (
-    <div style={{ minHeight: "100vh", background: "#0f0604", paddingTop: "4.5rem" }}>
+    <div style={{ minHeight: "100vh", background: "#fdf8f5", paddingTop: "4.5rem" }}>
       <main className="max-w-2xl mx-auto px-6 py-12">
 
         {/* Header */}
         <div className="text-center mb-10" style={{ animation: "fadeInUp 0.6s ease 0.1s both" }}>
-          <div style={{ color: "#c9a84c", fontSize: "1.5rem", marginBottom: "0.5rem" }}>✦ ❧ ✦</div>
-          <h1 style={{ color: "#c9a84c", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>
+          <div style={{ color: "#b76e79", fontSize: "1.5rem", marginBottom: "0.5rem" }}>✦ ❧ ✦</div>
+          <h1 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>
             Music
           </h1>
-          <p style={{ color: "#e8d5a3", fontSize: "0.95rem", marginTop: "0.75rem", opacity: 0.8, lineHeight: 1.7 }}>
+          <p style={{ color: "#7a4a50", fontSize: "0.95rem", marginTop: "0.75rem", lineHeight: 1.7 }}>
             What song should we play? Search and add your wish to our wedding playlist.
           </p>
-          <div style={{ color: "#c9a84c", fontSize: "1.5rem", marginTop: "0.5rem" }}>✦ ❧ ✦</div>
+          <div style={{ color: "#b76e79", fontSize: "1.5rem", marginTop: "0.5rem" }}>✦ ❧ ✦</div>
         </div>
 
         {/* Search */}
@@ -112,9 +112,9 @@ export default function Music() {
               onChange={(e) => { setQuery(e.target.value); setSelected(null); }}
               style={{
                 width: "100%",
-                background: "rgba(255,255,255,0.05)",
-                border: "1px solid rgba(201,168,76,0.4)",
-                color: "#faf7f2",
+                background: "#fff",
+                border: "1px solid rgba(183,110,121,0.4)",
+                color: "#3d2020",
                 padding: "0.85rem 1rem",
                 fontSize: "1rem",
                 outline: "none",
@@ -123,7 +123,7 @@ export default function Music() {
               }}
             />
             {loading && (
-              <span style={{ position: "absolute", right: "1rem", top: "50%", transform: "translateY(-50%)", color: "#c9a84c", fontSize: "0.8rem" }}>
+              <span style={{ position: "absolute", right: "1rem", top: "50%", transform: "translateY(-50%)", color: "#b76e79", fontSize: "0.8rem" }}>
                 ...
               </span>
             )}
@@ -131,7 +131,7 @@ export default function Music() {
 
           {/* Search results */}
           {results.length > 0 && !selected && (
-            <div style={{ border: "1px solid rgba(201,168,76,0.3)", borderTop: "none" }}>
+            <div style={{ border: "1px solid rgba(183,110,121,0.3)", borderTop: "none" }}>
               {results.map((track) => (
                 <button
                   key={track.trackId}
@@ -139,18 +139,18 @@ export default function Music() {
                   className="flex items-center gap-3 w-full text-left"
                   style={{
                     padding: "0.75rem 1rem",
-                    background: "rgba(201,168,76,0.04)",
-                    borderBottom: "1px solid rgba(201,168,76,0.1)",
+                    background: "rgba(183,110,121,0.04)",
+                    borderBottom: "1px solid rgba(183,110,121,0.1)",
                     cursor: "pointer",
                     transition: "background 0.15s",
                   }}
-                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(201,168,76,0.12)")}
-                  onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(201,168,76,0.04)")}
+                  onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(183,110,121,0.12)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(183,110,121,0.04)")}
                 >
                   <Image src={track.artworkUrl100} alt={track.trackName} width={40} height={40} style={{ flexShrink: 0 }} />
                   <div>
-                    <p style={{ color: "#faf7f2", fontSize: "0.9rem", fontFamily: "Georgia, serif" }}>{track.trackName}</p>
-                    <p style={{ color: "#c9a84c", fontSize: "0.8rem" }}>{track.artistName}</p>
+                    <p style={{ color: "#3d2020", fontSize: "0.9rem", fontFamily: "Georgia, serif" }}>{track.trackName}</p>
+                    <p style={{ color: "#b76e79", fontSize: "0.8rem" }}>{track.artistName}</p>
                   </div>
                 </button>
               ))}
@@ -162,16 +162,16 @@ export default function Music() {
         {selected && (
           <div
             className="flex items-center gap-4 mb-6"
-            style={{ border: "1px solid rgba(201,168,76,0.4)", background: "rgba(201,168,76,0.08)", padding: "1rem", animation: "fadeInUp 0.4s ease both" }}
+            style={{ border: "1px solid rgba(183,110,121,0.4)", background: "rgba(183,110,121,0.08)", padding: "1rem", animation: "fadeInUp 0.4s ease both" }}
           >
             <Image src={selected.artworkUrl100} alt={selected.trackName} width={56} height={56} />
             <div className="flex-1">
-              <p style={{ color: "#faf7f2", fontFamily: "Georgia, serif", fontSize: "1rem" }}>{selected.trackName}</p>
-              <p style={{ color: "#c9a84c", fontSize: "0.85rem" }}>{selected.artistName}</p>
+              <p style={{ color: "#3d2020", fontFamily: "Georgia, serif", fontSize: "1rem" }}>{selected.trackName}</p>
+              <p style={{ color: "#b76e79", fontSize: "0.85rem" }}>{selected.artistName}</p>
             </div>
             <button
               onClick={() => { setSelected(null); setQuery(""); }}
-              style={{ color: "#c9a84c", background: "transparent", border: "none", fontSize: "1.2rem", cursor: "pointer" }}
+              style={{ color: "#b76e79", background: "transparent", border: "none", fontSize: "1.2rem", cursor: "pointer" }}
             >
               ✕
             </button>
@@ -186,9 +186,9 @@ export default function Music() {
             style={{
               width: "100%",
               padding: "1rem",
-              background: "rgba(201,168,76,0.15)",
-              border: "1px solid #c9a84c",
-              color: "#c9a84c",
+              background: "rgba(183,110,121,0.12)",
+              border: "1px solid #b76e79",
+              color: "#b76e79",
               fontFamily: "Georgia, serif",
               fontSize: "1rem",
               letterSpacing: "0.2em",
@@ -204,12 +204,12 @@ export default function Music() {
 
         {/* Success / duplicate message */}
         {submitted === "added" && (
-          <p style={{ color: "#c9a84c", textAlign: "center", fontSize: "1rem", marginBottom: "2rem", animation: "fadeInUp 0.4s ease both" }}>
+          <p style={{ color: "#b76e79", textAlign: "center", fontSize: "1rem", marginBottom: "2rem", animation: "fadeInUp 0.4s ease both" }}>
             ✦ Song added to the playlist!
           </p>
         )}
         {submitted === "duplicate" && (
-          <p style={{ color: "#e8a87c", textAlign: "center", fontSize: "1rem", marginBottom: "2rem", animation: "fadeInUp 0.4s ease both" }}>
+          <p style={{ color: "#c0504d", textAlign: "center", fontSize: "1rem", marginBottom: "2rem", animation: "fadeInUp 0.4s ease both" }}>
             This song is already on the playlist!
           </p>
         )}
@@ -218,17 +218,17 @@ export default function Music() {
         {wishes.length > 0 && (
           <div style={{ animation: "fadeInUp 0.6s ease 0.5s both" }}>
             <div className="flex items-center gap-4 mb-4">
-              <div className="flex-1 h-px" style={{ background: "rgba(201,168,76,0.3)" }} />
-              <span style={{ color: "#c9a84c", fontSize: "0.8rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Playlist so far</span>
-              <div className="flex-1 h-px" style={{ background: "rgba(201,168,76,0.3)" }} />
+              <div className="flex-1 h-px" style={{ background: "rgba(183,110,121,0.3)" }} />
+              <span style={{ color: "#b76e79", fontSize: "0.8rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Playlist so far</span>
+              <div className="flex-1 h-px" style={{ background: "rgba(183,110,121,0.3)" }} />
             </div>
             <div className="flex flex-col gap-3">
               {wishes.map((wish, i) => (
-                <div key={i} className="flex items-center gap-3" style={{ border: "1px solid rgba(201,168,76,0.2)", background: "rgba(201,168,76,0.03)", padding: "0.75rem 1rem" }}>
+                <div key={i} className="flex items-center gap-3" style={{ border: "1px solid rgba(183,110,121,0.2)", background: "rgba(183,110,121,0.04)", padding: "0.75rem 1rem" }}>
                   {wish.cover_url && <Image src={wish.cover_url} alt={wish.song_title} width={40} height={40} />}
                   <div>
-                    <p style={{ color: "#faf7f2", fontSize: "0.9rem", fontFamily: "Georgia, serif" }}>{wish.song_title}</p>
-                    <p style={{ color: "#c9a84c", fontSize: "0.8rem" }}>{wish.artist}</p>
+                    <p style={{ color: "#3d2020", fontSize: "0.9rem", fontFamily: "Georgia, serif" }}>{wish.song_title}</p>
+                    <p style={{ color: "#b76e79", fontSize: "0.8rem" }}>{wish.artist}</p>
                   </div>
                 </div>
               ))}

@@ -33,22 +33,22 @@ const events = [
 
 export default function Program() {
   return (
-    <div style={{ minHeight: "100vh", background: "#0f0604", paddingTop: "4.5rem" }}>
+    <div style={{ minHeight: "100vh", background: "#fdf8f5", paddingTop: "4.5rem" }}>
       <main className="max-w-2xl mx-auto px-6 py-12">
 
-        {/* Header — flies in first */}
+        {/* Header */}
         <div
           className="text-center mb-12"
           style={{ animation: "fadeInUp 0.6s ease 0.1s both" }}
         >
-          <div style={{ color: "#c9a84c", fontSize: "1.5rem", marginBottom: "0.5rem" }}>✦ ❧ ✦</div>
-          <h1 style={{ color: "#c9a84c", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>
+          <div style={{ color: "#b76e79", fontSize: "1.5rem", marginBottom: "0.5rem" }}>✦ ❧ ✦</div>
+          <h1 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>
             Program
           </h1>
-          <p style={{ color: "#e8d5a3", fontSize: "0.95rem", marginTop: "0.75rem", opacity: 0.8 }}>
+          <p style={{ color: "#7a4a50", fontSize: "0.95rem", marginTop: "0.75rem", opacity: 0.8 }}>
             6 September 2026 &nbsp;·&nbsp; Küsnacht
           </p>
-          <div style={{ color: "#c9a84c", fontSize: "1.5rem", marginTop: "0.75rem" }}>✦ ❧ ✦</div>
+          <div style={{ color: "#b76e79", fontSize: "1.5rem", marginTop: "0.75rem" }}>✦ ❧ ✦</div>
         </div>
 
         {/* Timeline */}
@@ -61,8 +61,8 @@ export default function Program() {
             top: 0,
             bottom: 0,
             width: "1px",
-            background: "linear-gradient(to bottom, transparent, #c9a84c 5%, #c9a84c 95%, transparent)",
-            opacity: 0.4,
+            background: "linear-gradient(to bottom, transparent, #b76e79 5%, #b76e79 95%, transparent)",
+            opacity: 0.35,
           }}/>
 
           {events.map((event, i) => (
@@ -71,9 +71,9 @@ export default function Program() {
               className="flex items-center gap-0"
               style={{ animation: `fadeInUp 0.6s ease ${0.2 + i * 0.15}s both` }}
             >
-              {/* Time — centered in fixed column */}
+              {/* Time */}
               <div style={{ width: "4.5rem", textAlign: "center", flexShrink: 0 }}>
-                <span style={{ color: "#c9a84c", fontFamily: "Georgia, serif", fontSize: "1rem", letterSpacing: "0.05em" }}>
+                <span style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1rem", letterSpacing: "0.05em" }}>
                   {event.time}
                 </span>
               </div>
@@ -83,7 +83,7 @@ export default function Program() {
                 <div style={{
                   width: 12,
                   height: 12,
-                  background: "#c9a84c",
+                  background: "#b76e79",
                   transform: "rotate(45deg)",
                 }}/>
               </div>
@@ -92,17 +92,17 @@ export default function Program() {
               <div style={{
                 flex: 1,
                 marginLeft: "1.25rem",
-                border: "1px solid rgba(201,168,76,0.3)",
-                background: "rgba(201,168,76,0.05)",
+                border: "1px solid rgba(183,110,121,0.3)",
+                background: "rgba(183,110,121,0.06)",
                 padding: "0.9rem 1.1rem",
               }}>
                 <div className="flex items-center gap-2 mb-1">
                   <span style={{ fontSize: "1.1rem" }}>{event.icon}</span>
-                  <h2 style={{ color: "#faf7f2", fontFamily: "Georgia, serif", fontSize: "1.05rem", fontWeight: 400 }}>
+                  <h2 style={{ color: "#3d2020", fontFamily: "Georgia, serif", fontSize: "1.05rem", fontWeight: 400 }}>
                     {event.title}
                   </h2>
                 </div>
-                <p style={{ color: "#e8d5a3", fontSize: "0.8rem", opacity: 0.75, lineHeight: 1.6 }}>
+                <p style={{ color: "#7a4a50", fontSize: "0.8rem", lineHeight: 1.6 }}>
                   {event.description}
                 </p>
               </div>
