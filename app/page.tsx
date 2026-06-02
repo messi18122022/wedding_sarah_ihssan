@@ -18,22 +18,6 @@ export default function Home() {
           In the name of God, the Most Gracious, the Most Merciful
         </p>
 
-        {/* Photo with names */}
-        <div className="fade-in-up" style={{ marginBottom: "0.4rem", width: "100vw", maxWidth: "520px", marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }}>
-          <img
-            src="/sarah_ihssan.jpeg"
-            alt="Ihssan & Sarah"
-            style={{
-              width: "100%",
-              display: "block",
-              objectFit: "cover",
-              filter: "brightness(1.2) contrast(1.1)",
-              maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
-              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
-            }}
-          />
-        </div>
-
         {/* Wide divider */}
         <div className="fade-in-up-delay flex items-center gap-4 w-full max-w-sm" style={{ margin: "1.2rem 0" }}>
           <div className="flex-1 h-px" style={{ background: "#b76e79", opacity: 0.4 }} />
