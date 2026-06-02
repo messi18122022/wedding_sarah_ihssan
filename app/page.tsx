@@ -18,15 +18,15 @@ export default function Home() {
           Sarah &amp; Ihssan
         </h1>
 
-        {/* Video */}
+        {/* Video with overlaid text */}
         <div
           className="fade-in-up"
           style={{
+            position: "relative",
             width: "100vw",
             maxWidth: "520px",
             marginLeft: "calc(-50vw + 50%)",
             marginRight: "calc(-50vw + 50%)",
-            marginBottom: "1.2rem",
             marginTop: "1rem",
           }}
         >
@@ -38,21 +38,33 @@ export default function Home() {
             playsInline
             style={{ width: "100%", display: "block", objectFit: "cover" }}
           />
+          {/* Gradient overlay so text is readable */}
+          <div style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            right: 0,
+            height: "45%",
+            background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.55))",
+            pointerEvents: "none",
+          }} />
+          {/* Text overlay */}
+          <div style={{
+            position: "absolute",
+            bottom: "1.2rem",
+            left: 0,
+            right: 0,
+            textAlign: "center",
+            padding: "0 1rem",
+          }}>
+            <p style={{ fontSize: "1.1rem", color: "#fff", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.25rem", fontFamily: "Georgia, serif" }}>
+              6 September 2026 &nbsp;<span style={{ fontWeight: 200, opacity: 0.7 }}>|</span>&nbsp; 17:00
+            </p>
+            <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.85)", letterSpacing: "0.08em", fontFamily: "Georgia, serif" }}>
+              Sonne Boutiquehotel &amp; Seerestaurant<br />Seestrasse 120, 8700 Küsnacht
+            </p>
+          </div>
         </div>
-
-        {/* Date & Location */}
-        <p
-          className="fade-in-up-delay tracking-[0.2em] uppercase"
-          style={{ fontSize: "1.2rem", color: "#3d2020", marginBottom: "0.3rem" }}
-        >
-          6 September 2026 &nbsp;<span style={{ fontWeight: 200, opacity: 0.6 }}>|</span>&nbsp; 17:00
-        </p>
-        <p
-          className="fade-in-up-delay tracking-wider"
-          style={{ fontSize: "1rem", color: "#7a4a50", letterSpacing: "0.1em" }}
-        >
-          Sonne Boutiquehotel &amp; Seerestaurant<br />Seestrasse 120, 8700 Küsnacht
-        </p>
       </main>
     </div>
   );
