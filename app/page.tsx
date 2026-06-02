@@ -18,11 +18,26 @@ export default function Home() {
           In the name of God, the Most Gracious, the Most Merciful
         </p>
 
-        {/* Wide divider */}
-        <div className="fade-in-up-delay flex items-center gap-4 w-full max-w-sm" style={{ margin: "1.2rem 0" }}>
-          <div className="flex-1 h-px" style={{ background: "#b76e79", opacity: 0.4 }} />
-          <span style={{ color: "#b76e79" }}>❧ ✦ ❧</span>
-          <div className="flex-1 h-px" style={{ background: "#b76e79", opacity: 0.4 }} />
+        {/* Video */}
+        <div
+          className="fade-in-up"
+          style={{
+            width: "100vw",
+            maxWidth: "520px",
+            marginLeft: "calc(-50vw + 50%)",
+            marginRight: "calc(-50vw + 50%)",
+            marginBottom: "1.2rem",
+            marginTop: "1rem",
+          }}
+        >
+          <video
+            src="/video.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ width: "100%", display: "block", objectFit: "cover" }}
+          />
         </div>
 
         {/* Date & Location */}
