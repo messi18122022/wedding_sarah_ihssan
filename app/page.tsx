@@ -625,7 +625,7 @@ export default function Home() {
               {/* Left arrow */}
               <button
                 onClick={() => setParkingIdx((i) => (i - 1 + PARKING.length) % PARKING.length)}
-                style={{ flexShrink: 0, background: "none", border: "1px solid rgba(107,90,69,0.4)", color: "#6b5a45", width: 36, height: 36, cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}
+                style={{ flexShrink: 0, background: "rgba(107,90,69,0.1)", border: "1px solid rgba(107,90,69,0.7)", color: "#4a3728", width: 36, height: 36, cursor: "pointer", fontSize: "1.2rem", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 400 }}
               >
                 ‹
               </button>
@@ -647,7 +647,7 @@ export default function Home() {
               {/* Right arrow */}
               <button
                 onClick={() => setParkingIdx((i) => (i + 1) % PARKING.length)}
-                style={{ flexShrink: 0, background: "none", border: "1px solid rgba(107,90,69,0.4)", color: "#6b5a45", width: 36, height: 36, cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}
+                style={{ flexShrink: 0, background: "rgba(107,90,69,0.1)", border: "1px solid rgba(107,90,69,0.7)", color: "#4a3728", width: 36, height: 36, cursor: "pointer", fontSize: "1.2rem", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 400 }}
               >
                 ›
               </button>
