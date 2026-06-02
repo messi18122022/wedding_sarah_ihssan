@@ -18,27 +18,19 @@ export default function Home() {
           In the name of God, the Most Gracious, the Most Merciful
         </p>
 
-        {/* Names */}
-        <h1
-          className="fade-in-up font-light"
-          style={{ color: "#b76e79", fontFamily: "Georgia, serif", letterSpacing: "0.08em", fontSize: "clamp(3.5rem, 11vw, 7rem)", lineHeight: 1.1, marginBottom: 0 }}
-        >
-          Sarah
-        </h1>
-
-        {/* Ornamental divider between names */}
-        <div className="fade-in-up flex items-center gap-3 w-48" style={{ margin: "0.6rem 0" }}>
-          <div className="flex-1 h-px" style={{ background: "#b76e79" }} />
-          <span style={{ color: "#b76e79", fontSize: "1.4rem" }}>✦</span>
-          <div className="flex-1 h-px" style={{ background: "#b76e79" }} />
+        {/* Photo with names */}
+        <div className="fade-in-up" style={{ marginBottom: "0.4rem" }}>
+          <img
+            src="/sarah_ihssan.jpeg"
+            alt="Ihssan & Sarah"
+            style={{
+              width: "clamp(280px, 70vw, 500px)",
+              borderRadius: "1rem",
+              boxShadow: "0 4px 24px rgba(183,110,121,0.18)",
+              objectFit: "cover",
+            }}
+          />
         </div>
-
-        <h1
-          className="fade-in-up font-light"
-          style={{ color: "#b76e79", fontFamily: "Georgia, serif", letterSpacing: "0.08em", fontSize: "clamp(3.5rem, 11vw, 7rem)", lineHeight: 1.1 }}
-        >
-          Ihssan
-        </h1>
 
         {/* Wide divider */}
         <div className="fade-in-up-delay flex items-center gap-4 w-full max-w-sm" style={{ margin: "1.2rem 0" }}>
