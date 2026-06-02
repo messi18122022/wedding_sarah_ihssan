@@ -2,7 +2,7 @@ export default function Home() {
   const seaBlue = "#5879a2";
 
   return (
-    <div style={{ minHeight: "100vh", background: seaBlue }}>
+    <div style={{ minHeight: "100vh", background: `linear-gradient(to bottom, ${seaBlue} 0%, ${seaBlue} 55%, #ffffff 85%)` }}>
       <main
         className="flex flex-col items-center justify-center px-6 text-center"
         style={{ minHeight: "100vh", paddingTop: "5rem", paddingBottom: "0", gap: "0" }}
@@ -37,7 +37,7 @@ export default function Home() {
             top: 0,
             left: 0,
             right: 0,
-            height: "35%",
+            height: "22%",
             background: `linear-gradient(to bottom, ${seaBlue}, transparent)`,
             zIndex: 1,
             pointerEvents: "none",
