@@ -265,14 +265,10 @@ export default function Home() {
           <div className="mb-8 overflow-hidden" style={{ border: "2px solid rgba(183,110,121,0.4)", aspectRatio: "16/9" }}>
             <iframe src="https://www.google.com/maps?q=Seestrasse+120,+8700+Küsnacht&output=embed" width="100%" height="100%" style={{ border: 0, display: "block" }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </div>
-          <div className="grid md:grid-cols-2 gap-6 mb-6">
+          <div className="mb-6">
             <div style={{ border: "1px solid rgba(183,110,121,0.3)", background: "rgba(183,110,121,0.05)", padding: "1.5rem" }}>
               <h3 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1.1rem", marginBottom: "0.75rem", letterSpacing: "0.1em" }}>🚂 By Train</h3>
               <p style={{ color: "#7a4a50", fontSize: "0.9rem", lineHeight: 1.7 }}>Take the S6 from Zürich HB direction Rapperswil.<br />Exit at <strong style={{ color: "#b76e79" }}>Küsnacht ZH</strong>.<br />5 min walk to the venue along the lake.</p>
-            </div>
-            <div style={{ border: "1px solid rgba(183,110,121,0.3)", background: "rgba(183,110,121,0.05)", padding: "1.5rem" }}>
-              <h3 style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1.1rem", marginBottom: "0.75rem", letterSpacing: "0.1em" }}>🚗 By Car</h3>
-              <p style={{ color: "#7a4a50", fontSize: "0.9rem", lineHeight: 1.7 }}>From Zürich city centre, take the Seestrasse (road along the lake) southbound.<br />The restaurant is directly on the lake in Küsnacht.</p>
             </div>
           </div>
           <div style={{ border: "1px solid rgba(183,110,121,0.3)", background: "rgba(183,110,121,0.05)", padding: "1.5rem" }}>
