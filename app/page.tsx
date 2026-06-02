@@ -19,12 +19,13 @@ export default function Home() {
         </p>
 
         {/* Photo with names */}
-        <div className="fade-in-up" style={{ marginBottom: "0.4rem", width: "100vw", maxWidth: "520px", marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }}>
+        <div className="fade-in-up" style={{ marginBottom: "0.4rem", width: "100vw", maxWidth: "520px", marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)", overflow: "hidden" }}>
           <img
             src="/sarah_ihssan.jpeg"
             alt="Ihssan & Sarah"
             style={{
-              width: "100%",
+              width: "115%",
+              marginLeft: "-15%",
               display: "block",
               objectFit: "cover",
               filter: "brightness(1.2) contrast(1.1)",
