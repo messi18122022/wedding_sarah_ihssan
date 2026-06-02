@@ -19,7 +19,7 @@ export default function Home() {
         </p>
 
         {/* Photo with names */}
-        <div className="fade-in-up" style={{ marginBottom: "0.4rem", width: "100%", maxWidth: "520px" }}>
+        <div className="fade-in-up" style={{ marginBottom: "0.4rem", width: "100vw", maxWidth: "520px", marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }}>
           <img
             src="/sarah_ihssan.jpeg"
             alt="Ihssan & Sarah"
@@ -28,8 +28,6 @@ export default function Home() {
               display: "block",
               objectFit: "cover",
               filter: "brightness(1.2) contrast(1.1)",
-              maskImage: "radial-gradient(ellipse 63% 75% at 50% 50%, black 55%, transparent 90%)",
-              WebkitMaskImage: "radial-gradient(ellipse 63% 75% at 50% 50%, black 55%, transparent 90%)",
             }}
           />
         </div>
