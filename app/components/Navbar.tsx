@@ -1,22 +1,39 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const links = [
-  { href: "/", label: "Home" },
-  { href: "/rsvp", label: "Join Us" },
-  { href: "/program", label: "Program" },
-  { href: "/gallery", label: "Gallery" },
-  { href: "/directions", label: "Directions" },
-  { href: "/music", label: "Music" },
-  { href: "/gifts", label: "Gifts" },
+  { id: "join-us", label: "Join Us" },
+  { id: "program", label: "Program" },
+  { id: "gallery", label: "Gallery" },
+  { id: "directions", label: "Directions" },
+  { id: "music", label: "Music" },
+  { id: "gifts", label: "Gifts" },
 ];
 
 export default function Navbar() {
-  const pathname = usePathname();
+  const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+    links.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActive(id); },
+        { threshold: 0.3 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  function scrollTo(id: string) {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false);
+  }
 
   return (
     <nav
@@ -34,29 +51,38 @@ export default function Navbar() {
     >
       <div className="max-w-5xl mx-auto px-6 flex items-center justify-between" style={{ height: "4.5rem" }}>
         {/* Logo */}
-        <Link href="/" style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1.3rem", letterSpacing: "0.15em" }}>
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          style={{ color: "#b76e79", fontFamily: "Georgia, serif", fontSize: "1.3rem", letterSpacing: "0.15em", background: "none", border: "none", cursor: "pointer" }}
+        >
           S &amp; I
-        </Link>
+        </button>
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
+          {links.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollTo(id)}
               style={{
-                color: pathname === href ? "#b76e79" : "#7a4a50",
+                color: active === id ? "#b76e79" : "#7a4a50",
                 fontSize: "0.85rem",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                borderBottom: pathname === href ? "1px solid #b76e79" : "1px solid transparent",
+                borderBottom: active === id ? "1px solid #b76e79" : "1px solid transparent",
                 paddingBottom: "2px",
                 transition: "color 0.2s",
                 fontFamily: "Georgia, serif",
+                background: "none",
+                border: "none",
+                borderBottomWidth: "1px",
+                borderBottomStyle: "solid",
+                borderBottomColor: active === id ? "#b76e79" : "transparent",
+                cursor: "pointer",
               }}
             >
               {label}
-            </Link>
+            </button>
           ))}
         </div>
 
@@ -66,9 +92,9 @@ export default function Navbar() {
           onClick={() => setOpen(!open)}
           aria-label="Menu"
         >
-          <span style={{ display: "block", width: 22, height: 1.5, background: "#b76e79" }}/>
-          <span style={{ display: "block", width: 22, height: 1.5, background: "#b76e79" }}/>
-          <span style={{ display: "block", width: 22, height: 1.5, background: "#b76e79" }}/>
+          <span style={{ display: "block", width: 22, height: 1.5, background: "#b76e79" }} />
+          <span style={{ display: "block", width: 22, height: 1.5, background: "#b76e79" }} />
+          <span style={{ display: "block", width: 22, height: 1.5, background: "#b76e79" }} />
         </button>
       </div>
 
@@ -78,20 +104,22 @@ export default function Navbar() {
           className="md:hidden flex flex-col items-center gap-6 py-6"
           style={{ borderTop: "1px solid rgba(183,110,121,0.2)" }}
         >
-          {links.map(({ href, label }) => (
-            <Link
-              key={href}
-              href={href}
-              onClick={() => setOpen(false)}
+          {links.map(({ id, label }) => (
+            <button
+              key={id}
+              onClick={() => scrollTo(id)}
               style={{
-                color: pathname === href ? "#b76e79" : "#7a4a50",
+                color: active === id ? "#b76e79" : "#7a4a50",
                 fontSize: "0.8rem",
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
+                background: "none",
+                border: "none",
+                cursor: "pointer",
               }}
             >
               {label}
-            </Link>
+            </button>
           ))}
         </div>
       )}
