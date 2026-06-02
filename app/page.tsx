@@ -30,7 +30,7 @@ export default function Home() {
           className="fade-in-up-delay tracking-[0.3em] uppercase"
           style={{ fontSize: "1.4rem", color: "#3d2020", marginBottom: "0.4rem" }}
         >
-          6 September 2026 &nbsp;·&nbsp; 17:00
+          6 September 2026<br />17:00
         </p>
         <p
           className="fade-in-up-delay tracking-wider"
