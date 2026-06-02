@@ -564,7 +564,21 @@ export default function Home() {
         <div className="max-w-3xl mx-auto px-6 text-center">
           <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Gallery</h2>
           <div style={{ marginTop: "3rem", border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.06)", padding: "4rem 2rem" }}>
-            <div style={{ fontSize: "4rem", marginBottom: "1.5rem" }}>📷</div>
+            <div style={{ marginBottom: "1.5rem", display: "flex", justifyContent: "center" }}>
+              <svg width="64" height="56" viewBox="0 0 64 56" fill="none" stroke="#6b5a45" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                {/* Camera body */}
+                <rect x="4" y="16" width="56" height="36" rx="4" />
+                {/* Lens */}
+                <circle cx="32" cy="34" r="12" />
+                <circle cx="32" cy="34" r="7" />
+                {/* Viewfinder bump */}
+                <path d="M22,16 L22,10 L30,6 L34,6 L42,10 L42,16" />
+                {/* Flash */}
+                <rect x="48" y="22" width="7" height="5" rx="1" />
+                {/* Shutter button */}
+                <circle cx="32" cy="34" r="2.5" fill="#6b5a45" stroke="none" />
+              </svg>
+            </div>
             <p style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.4rem", marginBottom: "0.75rem", fontWeight: 300 }}>Coming Soon</p>
             <p style={{ color: "#8a7060", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: "400px", margin: "0 auto" }}>
               After the big day, this is where all the beautiful memories will live. Check back after 6 September 2026.
@@ -656,7 +670,24 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-6 text-center">
           <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Gifts</h2>
           <div style={{ marginTop: "3rem", border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.06)", padding: "4rem 2rem" }}>
-            <div style={{ fontSize: "3.5rem", marginBottom: "1.5rem" }}>🎁</div>
+            <div style={{ marginBottom: "1.5rem", display: "flex", justifyContent: "center" }}>
+              <svg width="60" height="60" viewBox="0 0 60 60" fill="none" stroke="#6b5a45" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                {/* Box body */}
+                <rect x="6" y="26" width="48" height="30" rx="2" />
+                {/* Lid */}
+                <rect x="4" y="18" width="52" height="10" rx="2" />
+                {/* Vertical ribbon */}
+                <line x1="30" y1="18" x2="30" y2="56" />
+                {/* Horizontal ribbon on lid */}
+                <line x1="4" y1="23" x2="56" y2="23" />
+                {/* Bow left loop */}
+                <path d="M30,18 C26,14 18,10 16,14 C14,18 22,20 30,18" />
+                {/* Bow right loop */}
+                <path d="M30,18 C34,14 42,10 44,14 C46,18 38,20 30,18" />
+                {/* Bow knot */}
+                <circle cx="30" cy="18" r="2" fill="#6b5a45" stroke="none" />
+              </svg>
+            </div>
             <p style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.4rem", marginBottom: "1rem", fontWeight: 300 }}>Coming Soon</p>
             <p style={{ color: "#8a7060", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: "420px", margin: "0 auto" }}>
               Your presence at our wedding is the greatest gift of all. If you wish to contribute to our honeymoon or future together, a gift option will be available here soon.
