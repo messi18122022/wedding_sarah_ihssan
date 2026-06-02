@@ -12,6 +12,13 @@ type Wish = { song_title: string; artist: string; cover_url: string };
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
+const PARKING = [
+  { name: "Parking", lat: 47.3176693, lng: 8.5805212 },
+  { name: "Parkplatz", lat: 47.3177522, lng: 8.581487 },
+  { name: "Parkplatz Zürichstrasse", lat: 47.3189029, lng: 8.5815061 },
+  { name: "SBB P+Rail Küsnacht ZH", lat: 47.3205211, lng: 8.5799631 },
+];
+
 const MEALS = [
   {
     id: "Beef (Halal)",
@@ -329,6 +336,7 @@ export default function Home() {
     return () => clearInterval(id);
   }, []);
 
+  const [parkingIdx, setParkingIdx] = useState(0);
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(false);
   const [rsvpError, setRsvpError] = useState("");
@@ -608,9 +616,58 @@ export default function Home() {
               <p style={{ color: "#8a7060", fontSize: "0.9rem", lineHeight: 1.7 }}>Take the S6 from Zürich HB direction Rapperswil.<br />Exit at <strong style={{ color: "#6b5a45" }}>Küsnacht ZH</strong>.<br />5 min walk to the venue along the lake.</p>
             </div>
           </div>
-          <div style={{ border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.05)", padding: "1.5rem" }}>
-            <h3 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.1rem", marginBottom: "0.75rem", letterSpacing: "0.1em" }}>🅿️ Parking</h3>
-            <p style={{ color: "#8a7060", fontSize: "0.9rem", lineHeight: 1.7 }}>Parking information coming soon.</p>
+          {/* Parking slider */}
+          <div style={{ border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.05)", padding: "1.25rem" }}>
+            <h3 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.1rem", marginBottom: "1rem", letterSpacing: "0.1em" }}>Parking</h3>
+
+            {/* Map with arrows */}
+            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+              {/* Left arrow */}
+              <button
+                onClick={() => setParkingIdx((i) => (i - 1 + PARKING.length) % PARKING.length)}
+                style={{ flexShrink: 0, background: "none", border: "1px solid rgba(107,90,69,0.4)", color: "#6b5a45", width: 36, height: 36, cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}
+              >
+                ‹
+              </button>
+
+              {/* Map */}
+              <div style={{ flex: 1, overflow: "hidden", border: "1px solid rgba(107,90,69,0.2)", aspectRatio: "4/3" }}>
+                <iframe
+                  key={parkingIdx}
+                  src={`https://www.google.com/maps?q=${PARKING[parkingIdx].lat},${PARKING[parkingIdx].lng}&z=17&output=embed`}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, display: "block" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+
+              {/* Right arrow */}
+              <button
+                onClick={() => setParkingIdx((i) => (i + 1) % PARKING.length)}
+                style={{ flexShrink: 0, background: "none", border: "1px solid rgba(107,90,69,0.4)", color: "#6b5a45", width: 36, height: 36, cursor: "pointer", fontSize: "1rem", display: "flex", alignItems: "center", justifyContent: "center" }}
+              >
+                ›
+              </button>
+            </div>
+
+            {/* Name + dots */}
+            <div style={{ marginTop: "0.75rem", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <p style={{ color: "#4a3728", fontFamily: "'Jost', sans-serif", fontSize: "0.9rem", fontWeight: 300 }}>
+                {PARKING[parkingIdx].name}
+              </p>
+              <div style={{ display: "flex", gap: "0.4rem" }}>
+                {PARKING.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setParkingIdx(i)}
+                    style={{ width: 7, height: 7, borderRadius: "50%", background: "#6b5a45", opacity: i === parkingIdx ? 0.8 : 0.2, border: "none", cursor: "pointer", padding: 0 }}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
