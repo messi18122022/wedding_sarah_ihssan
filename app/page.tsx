@@ -440,32 +440,39 @@ export default function Home() {
             <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Program</h2>
             <p style={{ color: "#8a7060", fontSize: "0.95rem", marginTop: "0.75rem", opacity: 0.8 }}>6 September 2026 &nbsp;·&nbsp; Küsnacht</p>
           </div>
-          <div className="relative flex flex-col">
-            {/* Vertical line — sits between time and icon */}
-            <div style={{ position: "absolute", left: "4.5rem", top: 0, bottom: 0, width: "1px", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
-            {events.map((event, i) => {
-              const Icon = programIcons[event.title];
-              return (
-                <div key={i} style={{ display: "flex", alignItems: "center", padding: "0.6rem 0" }}>
-                  {/* Time */}
-                  <div style={{ width: "4.5rem", textAlign: "right", flexShrink: 0, paddingRight: "0.75rem" }}>
-                    <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 300 }}>
-                      {event.time}
-                    </span>
+          {/* Grid: time | gap | line | gap(bigger) | icon | gap | title
+               1fr on time+title balances the icon at exactly 50% */}
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div style={{ position: "relative" }}>
+              {/* Vertical line — at left edge of the gap-to-icon column */}
+              <div style={{ position: "absolute", left: "6rem", top: 0, bottom: 0, width: "1px", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
+
+              {events.map((event, i) => {
+                const Icon = programIcons[event.title];
+                return (
+                  <div key={i} style={{ display: "grid", gridTemplateColumns: "6rem 2.5rem auto 8rem", alignItems: "center", padding: "0.55rem 0" }}>
+                    {/* Time — right-aligned in col 1 */}
+                    <div style={{ textAlign: "right", paddingRight: "0.75rem" }}>
+                      <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 300 }}>
+                        {event.time}
+                      </span>
+                    </div>
+                    {/* Gap col 2 — space between line and icon */}
+                    <div />
+                    {/* Icon col 3 */}
+                    <div style={{ display: "flex", justifyContent: "center", position: "relative", zIndex: 1 }}>
+                      {Icon && <Icon />}
+                    </div>
+                    {/* Title col 4 */}
+                    <div style={{ paddingLeft: "1rem" }}>
+                      <span style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.4rem", fontWeight: 300, letterSpacing: "0.05em" }}>
+                        {event.title}
+                      </span>
+                    </div>
                   </div>
-                  {/* Icon centered on line */}
-                  <div style={{ flexShrink: 0, position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    {Icon && <Icon />}
-                  </div>
-                  {/* Title */}
-                  <div style={{ marginLeft: "1rem" }}>
-                    <span style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.4rem", fontWeight: 300, letterSpacing: "0.05em" }}>
-                      {event.title}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
