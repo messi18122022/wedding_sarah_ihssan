@@ -438,7 +438,7 @@ export default function Home() {
           className="flex flex-col items-center justify-start px-6 text-center"
           style={{ paddingTop: "5rem", paddingBottom: "0", gap: "0" }}
         >
-          <p className="fade-in-up" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.8rem, 5vw, 2.8rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
+          <p className="fade-in-up" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.2rem, 3.5vw, 1.9rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </p>
           <h1 className="fade-in-up font-light" style={{ color: "#fff", fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", letterSpacing: "0.1em", fontSize: "clamp(2rem, 8vw, 4rem)", lineHeight: 1.1, marginBottom: "0.6rem" }}>
@@ -623,7 +623,7 @@ export default function Home() {
             <p style={{ color: "#8a7060", fontSize: "1rem", letterSpacing: "0.1em" }}>Seestrasse 120, 8700 Küsnacht</p>
           </div>
           <div className="mb-8 overflow-hidden" style={{ border: "2px solid rgba(107,90,69,0.4)", aspectRatio: "16/9" }}>
-            <iframe src="https://www.google.com/maps?q=Seestrasse+120,+8700+Küsnacht&output=embed" width="100%" height="100%" style={{ border: 0, display: "block" }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+            <iframe src="https://www.google.com/maps?q=47.318961,8.578781&z=17&output=embed" width="100%" height="100%" style={{ border: 0, display: "block", pointerEvents: "none" }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </div>
           <div className="mb-6">
             <div style={{ border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.05)", padding: "1.5rem" }}>

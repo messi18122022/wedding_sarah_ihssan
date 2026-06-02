@@ -65,7 +65,7 @@ export default function Navbar() {
               key={id}
               onClick={() => scrollTo(id)}
               style={{
-                color: active === id ? "#6b5a45" : "#4a3728",
+                color: active === id ? "#6b5a45" : "#2d1a0e",
                 fontSize: "0.8rem",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
@@ -110,7 +110,7 @@ export default function Navbar() {
               key={id}
               onClick={() => scrollTo(id)}
               style={{
-                color: active === id ? "#6b5a45" : "#4a3728",
+                color: active === id ? "#6b5a45" : "#2d1a0e",
                 fontSize: "0.8rem",
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
