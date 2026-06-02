@@ -344,8 +344,12 @@ export default function Home() {
     return () => { if (parkingTimer.current) clearInterval(parkingTimer.current); };
   }, []);
 
-  function parkingNav(dir: 1 | -1) {
+  function stopParkingTimer() {
     if (parkingTimer.current) { clearInterval(parkingTimer.current); parkingTimer.current = null; }
+  }
+
+  function parkingNav(dir: 1 | -1) {
+    stopParkingTimer();
     setParkingIdx((i) => (i + dir + PARKING.length) % PARKING.length);
   }
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
@@ -644,8 +648,8 @@ export default function Home() {
                 ‹
               </button>
 
-              {/* Map */}
-              <div style={{ flex: 1, overflow: "hidden", border: "1px solid rgba(107,90,69,0.2)", aspectRatio: "4/3" }}>
+              {/* Map — stop timer on any interaction */}
+              <div onMouseEnter={stopParkingTimer} onTouchStart={stopParkingTimer} style={{ flex: 1, overflow: "hidden", border: "1px solid rgba(107,90,69,0.2)", aspectRatio: "4/3" }}>
                 <iframe
                   key={parkingIdx}
                   src={`https://www.google.com/maps?q=${PARKING[parkingIdx].lat},${PARKING[parkingIdx].lng}&z=17&output=embed`}
@@ -681,7 +685,7 @@ export default function Home() {
                 {PARKING.map((_, i) => (
                   <button
                     key={i}
-                    onClick={() => setParkingIdx(i)}
+                    onClick={() => { stopParkingTimer(); setParkingIdx(i); }}
                     style={{ width: 7, height: 7, borderRadius: "50%", background: "#6b5a45", opacity: i === parkingIdx ? 0.8 : 0.2, border: "none", cursor: "pointer", padding: 0 }}
                   />
                 ))}
