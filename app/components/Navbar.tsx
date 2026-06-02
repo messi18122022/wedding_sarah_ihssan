@@ -70,7 +70,7 @@ export default function Navbar() {
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 fontFamily: "'Jost', sans-serif",
-                fontWeight: active === id ? 300 : 200,
+                fontWeight: active === id ? 400 : 300,
                 borderBottom: "none",
                 borderBottomWidth: "1px",
                 borderBottomStyle: "solid",
@@ -110,12 +110,12 @@ export default function Navbar() {
               key={id}
               onClick={() => scrollTo(id)}
               style={{
-                color: active === id ? "#6b5a45" : "#2d1a0e",
+                color: "#6b5a45",
                 fontSize: "0.8rem",
                 letterSpacing: "0.25em",
                 textTransform: "uppercase",
                 fontFamily: "'Jost', sans-serif",
-                fontWeight: 200,
+                fontWeight: 400,
                 background: "none",
                 border: "none",
                 cursor: "pointer",

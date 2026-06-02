@@ -622,8 +622,9 @@ export default function Home() {
             <p style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.3rem", marginBottom: "0.4rem" }}>Sonne — Boutiquehotel &amp; Seerestaurant</p>
             <p style={{ color: "#8a7060", fontSize: "1rem", letterSpacing: "0.1em" }}>Seestrasse 120, 8700 Küsnacht</p>
           </div>
-          <div className="mb-8 overflow-hidden" style={{ border: "2px solid rgba(107,90,69,0.4)", aspectRatio: "16/9" }}>
+          <div className="mb-8 overflow-hidden" style={{ border: "2px solid rgba(107,90,69,0.4)", aspectRatio: "16/9", position: "relative" }}>
             <iframe src="https://www.google.com/maps?q=47.318961,8.578781&z=17&output=embed" width="100%" height="100%" style={{ border: 0, display: "block", pointerEvents: "none" }} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+            <a href="https://www.google.com/maps?q=47.318961,8.578781" target="_blank" rel="noopener noreferrer" style={{ position: "absolute", inset: 0, display: "block" }} aria-label="Open in Google Maps" />
           </div>
           <div className="mb-6">
             <div style={{ border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.05)", padding: "1.5rem" }}>
@@ -649,7 +650,7 @@ export default function Home() {
               </button>
 
               {/* Map — stop timer on any interaction */}
-              <div onMouseEnter={stopParkingTimer} onTouchStart={stopParkingTimer} style={{ flex: 1, overflow: "hidden", border: "1px solid rgba(107,90,69,0.2)", aspectRatio: "4/3" }}>
+              <div onMouseEnter={stopParkingTimer} onTouchStart={stopParkingTimer} style={{ flex: 1, overflow: "hidden", border: "1px solid rgba(107,90,69,0.2)", aspectRatio: "4/3", position: "relative" }}>
                 <iframe
                   key={parkingIdx}
                   src={`https://www.google.com/maps?q=${PARKING[parkingIdx].lat},${PARKING[parkingIdx].lng}&z=17&output=embed`}
@@ -659,6 +660,7 @@ export default function Home() {
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
+                <a href={`https://www.google.com/maps?q=${PARKING[parkingIdx].lat},${PARKING[parkingIdx].lng}`} target="_blank" rel="noopener noreferrer" onClick={stopParkingTimer} style={{ position: "absolute", inset: 0, display: "block" }} aria-label="Open in Google Maps" />
               </div>
 
               {/* Right arrow */}
