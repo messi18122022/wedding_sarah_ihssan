@@ -44,8 +44,9 @@ const c = "#6b5a45";
 const s = { strokeLinecap: "round" as const, strokeLinejoin: "round" as const };
 
 function IconGlasses() {
+  // wider viewBox so glasses don't clip when swinging outward
   return (
-    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke={c} strokeWidth="1.6" {...s}>
+    <svg width="72" height="52" viewBox="-10 0 72 52" fill="none" stroke={c} strokeWidth="1.6" {...s}>
       {/* Left flute */}
       <g style={{ transformOrigin: "14px 44px", animation: "clinkLeft 2.4s ease-in-out infinite" }}>
         <path d="M10,8 L8,36 L20,36 L18,8 Z" />
@@ -439,29 +440,29 @@ export default function Home() {
             <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Program</h2>
             <p style={{ color: "#8a7060", fontSize: "0.95rem", marginTop: "0.75rem", opacity: 0.8 }}>6 September 2026 &nbsp;·&nbsp; Küsnacht</p>
           </div>
-          <div className="flex flex-col items-center">
+          <div className="relative flex flex-col">
+            {/* Vertical line */}
+            <div style={{ position: "absolute", left: "calc(4.5rem + 36px)", top: 0, bottom: 0, width: "1px", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
             {events.map((event, i) => {
               const Icon = programIcons[event.title];
               return (
-                <div key={i} className="flex flex-col items-center">
-                  <div style={{ display: "flex", alignItems: "center", gap: "1.5rem", padding: "0.5rem 0" }}>
-                    {/* Time */}
-                    <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.15em", fontWeight: 200, width: "3.5rem", textAlign: "right" }}>
+                <div key={i} style={{ display: "flex", alignItems: "center", padding: "0.6rem 0" }}>
+                  {/* Time */}
+                  <div style={{ width: "4.5rem", textAlign: "right", flexShrink: 0, paddingRight: "0.75rem" }}>
+                    <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 200 }}>
                       {event.time}
                     </span>
-                    {/* Animated icon */}
-                    <div style={{ flexShrink: 0 }}>
-                      {Icon && <Icon />}
-                    </div>
-                    {/* Title */}
-                    <span style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.4rem", fontWeight: 300, letterSpacing: "0.05em", width: "8rem" }}>
+                  </div>
+                  {/* Icon centered on line */}
+                  <div style={{ flexShrink: 0, position: "relative", zIndex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    {Icon && <Icon />}
+                  </div>
+                  {/* Title */}
+                  <div style={{ marginLeft: "1rem" }}>
+                    <span style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.4rem", fontWeight: 300, letterSpacing: "0.05em" }}>
                       {event.title}
                     </span>
                   </div>
-                  {/* Connector line */}
-                  {i < events.length - 1 && (
-                    <div style={{ width: "1px", height: "2rem", background: "linear-gradient(to bottom, rgba(107,90,69,0.3), rgba(107,90,69,0.3))" }} />
-                  )}
                 </div>
               );
             })}
