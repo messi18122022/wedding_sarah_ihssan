@@ -327,26 +327,6 @@ export default function Home() {
           )}
           {musicSubmitted === "added" && <p style={{ color: "#b76e79", textAlign: "center", fontSize: "1rem", marginBottom: "2rem" }}>✦ Song added to the playlist!</p>}
           {musicSubmitted === "duplicate" && <p style={{ color: "#c0504d", textAlign: "center", fontSize: "1rem", marginBottom: "2rem" }}>This song is already on the playlist!</p>}
-          {wishes.length > 0 && (
-            <div>
-              <div className="flex items-center gap-4 mb-4">
-                <div className="flex-1 h-px" style={{ background: "rgba(183,110,121,0.3)" }} />
-                <span style={{ color: "#b76e79", fontSize: "0.8rem", letterSpacing: "0.2em", textTransform: "uppercase" }}>Playlist so far</span>
-                <div className="flex-1 h-px" style={{ background: "rgba(183,110,121,0.3)" }} />
-              </div>
-              <div className="flex flex-col gap-3">
-                {wishes.map((wish, i) => (
-                  <div key={i} className="flex items-center gap-3" style={{ border: "1px solid rgba(183,110,121,0.2)", background: "rgba(183,110,121,0.04)", padding: "0.75rem 1rem" }}>
-                    {wish.cover_url && <Image src={wish.cover_url} alt={wish.song_title} width={40} height={40} />}
-                    <div>
-                      <p style={{ color: "#3d2020", fontSize: "0.9rem", fontFamily: "Georgia, serif" }}>{wish.song_title}</p>
-                      <p style={{ color: "#b76e79", fontSize: "0.8rem" }}>{wish.artist}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
       </section>
 

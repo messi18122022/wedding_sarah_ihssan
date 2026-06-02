@@ -58,27 +58,6 @@ export default function Navbar() {
           S &amp; I
         </button>
 
-        {/* Active section title — animates in on scroll */}
-        {active && (
-          <div
-            key={active}
-            style={{
-              position: "absolute",
-              left: "50%",
-              transform: "translateX(-50%)",
-              animation: "slideInNav 0.35s ease both",
-              color: "#b76e79",
-              fontFamily: "Georgia, serif",
-              fontSize: "0.9rem",
-              letterSpacing: "0.25em",
-              textTransform: "uppercase",
-              pointerEvents: "none",
-            }}
-          >
-            {links.find((l) => l.id === active)?.label}
-          </div>
-        )}
-
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-8">
           {links.map(({ id, label }) => (
