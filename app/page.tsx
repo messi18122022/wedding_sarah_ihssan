@@ -123,7 +123,7 @@ export default function Home() {
     <div style={{ background: "#fdf8f5" }}>
 
       {/* ── HOME ── */}
-      <section id="home" style={{ minHeight: "100vh", background: `linear-gradient(to bottom, ${seaBlue} 0%, ${seaBlue} 55%, #ffffff 85%)` }}>
+      <section id="home" style={{ background: `linear-gradient(to bottom, ${seaBlue} 0%, ${seaBlue} 55%, #fdf8f5 85%)` }}>
         <main
           className="flex flex-col items-center justify-start px-6 text-center"
           style={{ paddingTop: "5rem", paddingBottom: "0", gap: "0" }}
