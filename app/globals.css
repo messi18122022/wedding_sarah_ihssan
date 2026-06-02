@@ -66,6 +66,18 @@ body {
   0%, 100% { opacity: 0.75; }
   50% { opacity: 1; }
 }
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+@keyframes frostDrip {
+  0%, 60%, 100% { transform: translateY(0); opacity: 1; }
+  30%           { transform: translateY(4px); opacity: 0.7; }
+}
 
 @keyframes dropdownOpen {
   from { opacity: 0; transform: translateY(-6px); }

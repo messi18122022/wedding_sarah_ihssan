@@ -91,21 +91,42 @@ function IconCandle() {
 }
 
 function IconCake() {
+  const fill1 = "rgba(107,90,69,0.13)";
+  const fill2 = "rgba(107,90,69,0.22)";
   return (
-    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke={c} strokeWidth="1.6" {...s}>
-      {/* Cake tiers */}
-      <rect x="10" y="30" width="32" height="14" rx="1" />
-      <rect x="15" y="20" width="22" height="11" rx="1" />
-      {/* Candle on top */}
-      <line x1="26" y1="14" x2="26" y2="20" />
-      <circle cx="26" cy="13" r="2" fill={c} stroke="none" />
-      {/* Decorative lines on cake */}
-      <line x1="10" y1="37" x2="42" y2="37" strokeOpacity="0.3" />
-      <line x1="15" y1="27" x2="37" y2="27" strokeOpacity="0.3" />
-      {/* Knife */}
-      <g style={{ transformOrigin: "40px 18px", animation: "knifeSlice 2.8s ease-in-out infinite" }}>
-        <path d="M38,8 L42,8 L43,28 L37,28 Z" />
-        <line x1="37" y1="28" x2="43" y2="28" />
+    <svg width="52" height="56" viewBox="0 0 52 56" fill="none" stroke={c} strokeWidth="1.3" {...s}>
+      <g style={{ transformOrigin: "26px 36px", animation: "float 3.2s ease-in-out infinite" }}>
+        {/* ── Bottom tier ── */}
+        <rect x="4" y="36" width="44" height="12" rx="1" fill={fill1} />
+        {/* 3-D top face ellipse */}
+        <ellipse cx="26" cy="36" rx="22" ry="5.5" fill={fill2} />
+        {/* Frosting drips */}
+        {[9,17,26,35,43].map((x,i) => (
+          <line key={i} x1={x} y1="36" x2={x} y2={38+i%2} stroke={c} strokeOpacity="0.5"
+                style={{ animation: `frostDrip ${2+i*0.3}s ease-in-out ${i*0.2}s infinite` }} />
+        ))}
+        {/* Dots row */}
+        {[12,20,26,32,40].map((x,i) => (
+          <circle key={i} cx={x} cy="42" r="1.2" fill={c} stroke="none" />
+        ))}
+
+        {/* ── Middle tier ── */}
+        <rect x="11" y="23" width="30" height="14" rx="1" fill={fill1} />
+        <ellipse cx="26" cy="23" rx="15" ry="4" fill={fill2} />
+        {[16,22,26,30,36].map((x,i) => (
+          <circle key={i} cx={x} cy="30" r="1" fill={c} stroke="none" opacity="0.7" />
+        ))}
+
+        {/* ── Top tier ── */}
+        <rect x="17" y="13" width="18" height="11" rx="1" fill={fill1} />
+        <ellipse cx="26" cy="13" rx="9" ry="2.5" fill={fill2} />
+
+        {/* ── Candle ── */}
+        <rect x="23.5" y="6" width="5" height="8" rx="0.8" fill="rgba(107,90,69,0.1)" />
+        {/* Flame */}
+        <path d="M26,1 C24.5,3 23,5.5 23,7.5 C23,9.5 24.5,11 26,11 C27.5,11 29,9.5 29,7.5 C29,5.5 27.5,3 26,1 Z"
+              fill={c} stroke="none"
+              style={{ transformOrigin: "26px 7.5px", animation: "flicker 1.6s ease-in-out infinite" }} />
       </g>
     </svg>
   );
@@ -113,27 +134,27 @@ function IconCake() {
 
 function IconDance() {
   return (
-    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke={c} strokeWidth="1.6" {...s}>
-      {/* Figure 1 */}
-      <g style={{ transformOrigin: "18px 28px", animation: "swayL 1.6s ease-in-out infinite" }}>
-        <circle cx="18" cy="12" r="4" />
-        <line x1="18" y1="16" x2="18" y2="30" />
-        <line x1="18" y1="20" x2="12" y2="26" />
-        <line x1="18" y1="20" x2="24" y2="26" />
-        <line x1="18" y1="30" x2="13" y2="40" />
-        <line x1="18" y1="30" x2="22" y2="40" />
+    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke={c} strokeWidth="1.4" {...s}>
+      {/* Spinning vinyl record */}
+      <g style={{ transformOrigin: "26px 26px", animation: "spin 5s linear infinite" }}>
+        {/* Outer edge */}
+        <circle cx="26" cy="26" r="22" />
+        {/* Groove rings */}
+        <circle cx="26" cy="26" r="19" strokeOpacity="0.25" />
+        <circle cx="26" cy="26" r="16" strokeOpacity="0.25" />
+        <circle cx="26" cy="26" r="13" strokeOpacity="0.25" />
+        <circle cx="26" cy="26" r="10" strokeOpacity="0.25" />
+        {/* Sheen highlight — static arc suggesting gloss */}
+        <path d="M 10,14 A 20,20 0 0,1 42,14" strokeOpacity="0.18" strokeWidth="3.5" stroke={c} />
+        {/* Center label circle */}
+        <circle cx="26" cy="26" r="6.5" fill="rgba(107,90,69,0.18)" />
+        {/* Label text lines */}
+        <line x1="22" y1="24.5" x2="30" y2="24.5" strokeOpacity="0.5" strokeWidth="1" />
+        <line x1="22" y1="27" x2="30" y2="27" strokeOpacity="0.5" strokeWidth="1" />
+        <line x1="23" y1="29.5" x2="29" y2="29.5" strokeOpacity="0.5" strokeWidth="1" />
+        {/* Center hole */}
+        <circle cx="26" cy="26" r="1.8" fill="rgba(253,247,240,0.9)" stroke={c} strokeWidth="0.8" />
       </g>
-      {/* Figure 2 */}
-      <g style={{ transformOrigin: "34px 28px", animation: "swayR 1.6s ease-in-out infinite" }}>
-        <circle cx="34" cy="12" r="4" />
-        <line x1="34" y1="16" x2="34" y2="30" />
-        <line x1="34" y1="20" x2="28" y2="26" />
-        <line x1="34" y1="20" x2="40" y2="26" />
-        <line x1="34" y1="30" x2="30" y2="40" />
-        <line x1="34" y1="30" x2="38" y2="40" />
-      </g>
-      {/* Joined hands */}
-      <line x1="24" y1="26" x2="28" y2="26" strokeOpacity="0.5" />
     </svg>
   );
 }
@@ -438,7 +459,6 @@ export default function Home() {
         <div className="max-w-2xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>Program</h2>
-            <p style={{ color: "#8a7060", fontSize: "0.95rem", marginTop: "0.75rem", opacity: 0.8 }}>6 September 2026 &nbsp;·&nbsp; Küsnacht</p>
           </div>
           {/* Grid: time | gap | line | gap(bigger) | icon | gap | title
                1fr on time+title balances the icon at exactly 50% */}
@@ -457,8 +477,10 @@ export default function Home() {
                         {event.time}
                       </span>
                     </div>
-                    {/* Gap col 2 — space between line and icon */}
-                    <div />
+                    {/* Gap col 2 — dot centered on the line */}
+                    <div style={{ position: "relative", display: "flex", alignItems: "center" }}>
+                      <div style={{ position: "absolute", left: 0, transform: "translateX(-50%)", width: 7, height: 7, borderRadius: "50%", background: "#6b5a45", opacity: 0.55 }} />
+                    </div>
                     {/* Icon col 3 */}
                     <div style={{ display: "flex", justifyContent: "center", position: "relative", zIndex: 1 }}>
                       {Icon && <Icon />}
