@@ -337,6 +337,11 @@ export default function Home() {
   }, []);
 
   const [parkingIdx, setParkingIdx] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => setParkingIdx((i) => (i + 1) % PARKING.length), 2000);
+    return () => clearInterval(id);
+  }, []);
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(false);
   const [rsvpError, setRsvpError] = useState("");
@@ -618,7 +623,10 @@ export default function Home() {
           </div>
           {/* Parking slider */}
           <div style={{ border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.05)", padding: "1.25rem" }}>
-            <h3 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.1rem", marginBottom: "1rem", letterSpacing: "0.1em" }}>Parking</h3>
+            <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "1rem" }}>
+              <h3 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.1rem", letterSpacing: "0.1em" }}>Parking</h3>
+              <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.72rem", fontWeight: 200, letterSpacing: "0.05em" }}>slide through all 4 options</span>
+            </div>
 
             {/* Map with arrows */}
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
