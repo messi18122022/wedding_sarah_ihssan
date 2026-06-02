@@ -162,7 +162,7 @@ function IconMoon() {
   );
 }
 
-const programIcons: Record<string, () => JSX.Element> = {
+const programIcons: Record<string, () => React.ReactElement> = {
   "Apéro": IconGlasses,
   "Dinner": IconCandle,
   "Cake Cutting": IconCake,
