@@ -3,13 +3,13 @@
 import { useState, useEffect } from "react";
 
 const links = [
-  { id: "note", label: "A Note" },
   { id: "join-us", label: "Join Us" },
   { id: "program", label: "Program" },
   { id: "gallery", label: "Gallery" },
   { id: "directions", label: "Directions" },
   { id: "music", label: "Music" },
   { id: "gifts", label: "Gifts" },
+  { id: "note", label: "A Note" },
 ];
 
 export default function Navbar() {
