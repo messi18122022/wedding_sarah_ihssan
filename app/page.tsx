@@ -12,7 +12,23 @@ type Wish = { song_title: string; artist: string; cover_url: string };
 
 // ─── Data ────────────────────────────────────────────────────────────────────
 
-const MEALS = ["Beef", "Chicken", "Vegetarian"];
+const MEALS = [
+  {
+    id: "Beef (Halal)",
+    title: "Beef (Halal)",
+    description: "Gebratenes Rinds-Entrecôte mit hausgemachter Café de Paris-Sauce, buntem Saisongemüse und Bratkartoffeln",
+  },
+  {
+    id: "Fish",
+    title: "Fish",
+    description: "Auf der Haut gebratenes Zanderfilet an Safran-Schaum, buntem Saisongemüse und Bratkartoffeln",
+  },
+  {
+    id: "Vegan",
+    title: "Vegan",
+    description: "Bio Zitronen-Thymian-Raviolo Grande auf Safran-Kokos-Sauce, saisonalem Marktgemüse und geräucherten Tofu-Würfeln",
+  },
+];
 
 const events = [
   { time: "17:00", title: "Apéro", description: "Welcome drinks and canapés by the lake", icon: "🥂" },
@@ -34,6 +50,83 @@ function Divider() {
   );
 }
 
+// ─── Meal Dropdown ───────────────────────────────────────────────────────────
+
+function MealDropdown({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const selected = MEALS.find((m) => m.id === value) ?? MEALS[0];
+
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
+
+  return (
+    <div ref={ref} style={{ position: "relative" }}>
+      <button
+        type="button"
+        onClick={() => setOpen(!open)}
+        style={{
+          width: "100%",
+          background: "#fff",
+          border: "1px solid rgba(183,110,121,0.3)",
+          color: "#3d2020",
+          padding: "0.6rem 0.75rem",
+          fontSize: "0.9rem",
+          fontFamily: "Georgia, serif",
+          cursor: "pointer",
+          textAlign: "left",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
+        <span>{selected.title}</span>
+        <span style={{ color: "#b76e79", fontSize: "0.7rem" }}>{open ? "▲" : "▼"}</span>
+      </button>
+
+      {open && (
+        <div style={{
+          position: "absolute",
+          top: "100%",
+          left: 0,
+          right: 0,
+          background: "#fff",
+          border: "1px solid rgba(183,110,121,0.3)",
+          borderTop: "none",
+          zIndex: 10,
+        }}>
+          {MEALS.map((meal) => (
+            <button
+              key={meal.id}
+              type="button"
+              onClick={() => { onChange(meal.id); setOpen(false); }}
+              style={{
+                width: "100%",
+                textAlign: "left",
+                padding: "0.75rem",
+                background: meal.id === value ? "rgba(183,110,121,0.08)" : "#fff",
+                border: "none",
+                borderBottom: "1px solid rgba(183,110,121,0.1)",
+                cursor: "pointer",
+              }}
+              onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(183,110,121,0.06)")}
+              onMouseLeave={(e) => (e.currentTarget.style.background = meal.id === value ? "rgba(183,110,121,0.08)" : "#fff")}
+            >
+              <p style={{ color: "#3d2020", fontFamily: "Georgia, serif", fontSize: "0.9rem", marginBottom: "0.2rem" }}>{meal.title}</p>
+              <p style={{ color: "#7a4a50", fontSize: "0.75rem", lineHeight: 1.4 }}>{meal.description}</p>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ─── Page ────────────────────────────────────────────────────────────────────
 
 export default function Home() {
@@ -41,7 +134,7 @@ export default function Home() {
 
   // RSVP state
   const [count, setCount] = useState<number>(1);
-  const [guests, setGuests] = useState<Guest[]>([{ first_name: "", last_name: "", meal: "Beef" }]);
+  const [guests, setGuests] = useState<Guest[]>([{ first_name: "", last_name: "", meal: "Beef (Halal)" }]);
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(false);
   const [rsvpError, setRsvpError] = useState("");
@@ -84,7 +177,7 @@ export default function Home() {
     setCount(newCount);
     setGuests((prev) => {
       const updated = [...prev];
-      while (updated.length < newCount) updated.push({ first_name: "", last_name: "", meal: "Beef" });
+      while (updated.length < newCount) updated.push({ first_name: "", last_name: "", meal: "Beef (Halal)" });
       return updated.slice(0, newCount);
     });
   }
@@ -186,9 +279,7 @@ export default function Home() {
                     <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
                       <input type="text" placeholder="First Name" value={guest.first_name} onChange={(e) => handleGuestChange(i, "first_name", e.target.value)} style={{ background: "#fff", border: "1px solid rgba(183,110,121,0.3)", color: "#3d2020", padding: "0.6rem 0.75rem", fontSize: "0.9rem", outline: "none", fontFamily: "Georgia, serif" }} />
                       <input type="text" placeholder="Last Name" value={guest.last_name} onChange={(e) => handleGuestChange(i, "last_name", e.target.value)} style={{ background: "#fff", border: "1px solid rgba(183,110,121,0.3)", color: "#3d2020", padding: "0.6rem 0.75rem", fontSize: "0.9rem", outline: "none", fontFamily: "Georgia, serif" }} />
-                      <select value={guest.meal} onChange={(e) => handleGuestChange(i, "meal", e.target.value)} style={{ background: "#fff", border: "1px solid rgba(183,110,121,0.3)", color: "#3d2020", padding: "0.6rem 0.75rem", fontSize: "0.9rem", outline: "none", fontFamily: "Georgia, serif", cursor: "pointer" }}>
-                        {MEALS.map((m) => <option key={m} value={m}>{m}</option>)}
-                      </select>
+                      <MealDropdown value={guest.meal} onChange={(v) => handleGuestChange(i, "meal", v)} />
                     </div>
                   </div>
                 ))}
