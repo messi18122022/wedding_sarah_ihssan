@@ -655,8 +655,7 @@ export default function Home() {
                   src={`https://www.google.com/maps?q=${PARKING[parkingIdx].lat},${PARKING[parkingIdx].lng}&z=17&output=embed`}
                   width="100%"
                   height="100%"
-                  style={{ border: 0, display: "block" }}
-                  allowFullScreen
+                  style={{ border: 0, display: "block", pointerEvents: "none" }}
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
                 />
