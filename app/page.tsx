@@ -28,6 +28,8 @@ export default function Home() {
               display: "block",
               objectFit: "cover",
               filter: "brightness(1.2) contrast(1.1)",
+              maskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
+              WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%)",
             }}
           />
         </div>
