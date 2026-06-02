@@ -16,17 +16,17 @@ const MEALS = [
   {
     id: "Beef (Halal)",
     title: "Beef (Halal)",
-    description: "Gebratenes Rinds-Entrecôte mit hausgemachter Café de Paris-Sauce, buntem Saisongemüse und Bratkartoffeln",
+    description: "Pan-seared beef entrecôte with homemade Café de Paris sauce, seasonal vegetables and roasted potatoes",
   },
   {
     id: "Fish",
     title: "Fish",
-    description: "Auf der Haut gebratenes Zanderfilet an Safran-Schaum, buntem Saisongemüse und Bratkartoffeln",
+    description: "Crispy skin-on pike-perch fillet with saffron foam, seasonal vegetables and roasted potatoes",
   },
   {
     id: "Vegan",
     title: "Vegan",
-    description: "Bio Zitronen-Thymian-Raviolo Grande auf Safran-Kokos-Sauce, saisonalem Marktgemüse und geräucherten Tofu-Würfeln",
+    description: "Organic lemon-thyme raviolo grande on saffron-coconut sauce with seasonal market vegetables and smoked tofu",
   },
 ];
 
