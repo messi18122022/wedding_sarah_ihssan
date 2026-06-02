@@ -84,8 +84,6 @@ function IconCandle() {
       <rect x="20" y="24" width="12" height="22" rx="1" />
       {/* Wick */}
       <line x1="26" y1="23" x2="26" y2="25" strokeWidth="1" />
-      {/* Wax drip */}
-      <path d="M20,32 C18,33 18,36 20,36" strokeOpacity="0.5" />
     </svg>
   );
 }
@@ -134,27 +132,47 @@ function IconCake() {
 
 function IconDance() {
   return (
-    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" stroke={c} strokeWidth="1.4" {...s}>
-      {/* Spinning vinyl record */}
-      <g style={{ transformOrigin: "26px 26px", animation: "spin 5s linear infinite" }}>
-        {/* Outer edge */}
-        <circle cx="26" cy="26" r="22" />
-        {/* Groove rings */}
-        <circle cx="26" cy="26" r="19" strokeOpacity="0.25" />
-        <circle cx="26" cy="26" r="16" strokeOpacity="0.25" />
-        <circle cx="26" cy="26" r="13" strokeOpacity="0.25" />
-        <circle cx="26" cy="26" r="10" strokeOpacity="0.25" />
-        {/* Sheen highlight — static arc suggesting gloss */}
-        <path d="M 10,14 A 20,20 0 0,1 42,14" strokeOpacity="0.18" strokeWidth="3.5" stroke={c} />
-        {/* Center label circle */}
-        <circle cx="26" cy="26" r="6.5" fill="rgba(107,90,69,0.18)" />
-        {/* Label text lines */}
-        <line x1="22" y1="24.5" x2="30" y2="24.5" strokeOpacity="0.5" strokeWidth="1" />
-        <line x1="22" y1="27" x2="30" y2="27" strokeOpacity="0.5" strokeWidth="1" />
-        <line x1="23" y1="29.5" x2="29" y2="29.5" strokeOpacity="0.5" strokeWidth="1" />
-        {/* Center hole */}
-        <circle cx="26" cy="26" r="1.8" fill="rgba(253,247,240,0.9)" stroke={c} strokeWidth="0.8" />
+    <svg width="52" height="56" viewBox="0 0 52 56" fill="none" stroke={c} strokeWidth="1.2" {...s}>
+      <defs>
+        <clipPath id="discoclip">
+          <circle cx="26" cy="34" r="19" />
+        </clipPath>
+      </defs>
+      {/* Mount */}
+      <line x1="26" y1="0" x2="26" y2="15" strokeWidth="0.9" />
+      <line x1="21" y1="15" x2="31" y2="15" strokeWidth="0.9" />
+
+      {/* Ball fill */}
+      <circle cx="26" cy="34" r="19" fill="rgba(107,90,69,0.07)" />
+
+      {/* Tile grid — clipped to sphere */}
+      <g clipPath="url(#discoclip)" strokeOpacity="0.3" strokeWidth="0.7">
+        {[20,24,28,32,36,38,42,46].map(y => (
+          <line key={`h${y}`} x1="7" y1={y} x2="45" y2={y} />
+        ))}
+        {[11,15,19,23,26,29,33,37,41].map(x => (
+          <line key={`v${x}`} x1={x} y1="15" x2={x} y2="53" />
+        ))}
       </g>
+
+      {/* Ball outline */}
+      <circle cx="26" cy="34" r="19" />
+
+      {/* Highlight arc — top sheen */}
+      <path d="M 12,24 A 18,18 0 0,1 40,24" strokeOpacity="0.2" strokeWidth="4" />
+
+      {/* Twinkling light reflections */}
+      {([
+        [19, 27, 2.2, 0],
+        [31, 24, 1.6, 0.5],
+        [22, 38, 1.9, 1.0],
+        [35, 33, 1.4, 0.3],
+        [16, 36, 1.3, 0.8],
+        [29, 42, 1.5, 1.3],
+      ] as [number,number,number,number][]).map(([x, y, r, delay]) => (
+        <circle key={`${x}${y}`} cx={x} cy={y} r={r} fill={c} stroke="none"
+                style={{ animation: `twinkleStar 1.8s ease-in-out ${delay}s infinite` }} />
+      ))}
     </svg>
   );
 }
@@ -292,6 +310,25 @@ export default function Home() {
   // RSVP state
   const [count, setCount] = useState<number>(1);
   const [guests, setGuests] = useState<Guest[]>([{ first_name: "", last_name: "", meal: "Beef (Halal)", allergies: "" }]);
+  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+
+  useEffect(() => {
+    const target = new Date('2026-09-06T15:00:00Z'); // 17:00 CEST
+    function tick() {
+      const diff = target.getTime() - Date.now();
+      if (diff <= 0) { setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 }); return; }
+      setTimeLeft({
+        days: Math.floor(diff / 86400000),
+        hours: Math.floor((diff / 3600000) % 24),
+        minutes: Math.floor((diff / 60000) % 60),
+        seconds: Math.floor((diff / 1000) % 60),
+      });
+    }
+    tick();
+    const id = setInterval(tick, 1000);
+    return () => clearInterval(id);
+  }, []);
+
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(false);
   const [rsvpError, setRsvpError] = useState("");
@@ -395,6 +432,27 @@ export default function Home() {
               <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.85)", letterSpacing: "0.08em", fontFamily: "'Jost', sans-serif" }}>
                 Sonne Boutiquehotel &amp; Seerestaurant<br />Seestrasse 120, 8700 Küsnacht
               </p>
+            </div>
+          </div>
+
+          {/* Countdown */}
+          <div style={{ textAlign: "center", padding: "1.2rem 0 0.5rem" }}>
+            <div style={{ display: "flex", justifyContent: "center", gap: "clamp(1rem, 5vw, 2.5rem)" }}>
+              {([
+                { value: timeLeft.days, label: "Days" },
+                { value: timeLeft.hours, label: "Hours" },
+                { value: timeLeft.minutes, label: "Min" },
+                { value: timeLeft.seconds, label: "Sec" },
+              ] as const).map(({ value, label }) => (
+                <div key={label} style={{ textAlign: "center", minWidth: "3rem" }}>
+                  <div style={{ fontSize: "clamp(1.6rem, 6vw, 2.4rem)", fontWeight: 300, color: "#fff", fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1 }}>
+                    {String(value).padStart(2, "0")}
+                  </div>
+                  <div style={{ fontSize: "0.6rem", letterSpacing: "0.2em", color: "rgba(255,255,255,0.6)", textTransform: "uppercase", fontFamily: "'Jost', sans-serif", marginTop: "0.25rem" }}>
+                    {label}
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </main>
