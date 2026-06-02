@@ -1,57 +1,28 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400&display=swap');
 
 :root {
-  --background: #fdf8f5;
-  --foreground: #3d2020;
-  --rose: #b76e79;
-  --rose-light: #e8c0c5;
-  --champagne: #c9a87a;
-  --champagne-light: #f0e5d5;
-  --cream: #fdf8f5;
-  --text-soft: #7a4a50;
+  --background: #fdf7f0;
+  --foreground: #4a3728;
+  --accent: #6b5a45;
+  --accent-light: #ddd5c8;
+  --cream: #fdf7f0;
+  --text-soft: #8a7060;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-rose: var(--rose);
-  --color-rose-light: var(--rose-light);
-  --color-champagne: var(--champagne);
-  --color-champagne-light: var(--champagne-light);
+  --color-accent: var(--accent);
+  --color-accent-light: var(--accent-light);
   --color-cream: var(--cream);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Georgia, serif;
-}
-
-/* Ornamental divider */
-.ornament::before,
-.ornament::after {
-  content: "❧";
-  color: var(--rose);
-  margin: 0 1rem;
-}
-
-/* Arabesque border pattern */
-.arabesque-border {
-  border: 2px solid var(--rose);
-  position: relative;
-}
-
-.arabesque-border::before {
-  content: "✦";
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--cream);
-  padding: 0 8px;
-  color: var(--rose);
-  font-size: 1.2rem;
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
 }
 
 .scroll-section {
