@@ -337,11 +337,17 @@ export default function Home() {
   }, []);
 
   const [parkingIdx, setParkingIdx] = useState(0);
+  const parkingTimer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
-    const id = setInterval(() => setParkingIdx((i) => (i + 1) % PARKING.length), 2000);
-    return () => clearInterval(id);
+    parkingTimer.current = setInterval(() => setParkingIdx((i) => (i + 1) % PARKING.length), 4000);
+    return () => { if (parkingTimer.current) clearInterval(parkingTimer.current); };
   }, []);
+
+  function parkingNav(dir: 1 | -1) {
+    if (parkingTimer.current) { clearInterval(parkingTimer.current); parkingTimer.current = null; }
+    setParkingIdx((i) => (i + dir + PARKING.length) % PARKING.length);
+  }
   const [rsvpSubmitted, setRsvpSubmitted] = useState(false);
   const [rsvpLoading, setRsvpLoading] = useState(false);
   const [rsvpError, setRsvpError] = useState("");
@@ -632,7 +638,7 @@ export default function Home() {
             <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
               {/* Left arrow */}
               <button
-                onClick={() => setParkingIdx((i) => (i - 1 + PARKING.length) % PARKING.length)}
+                onClick={() => parkingNav(-1)}
                 style={{ flexShrink: 0, background: "rgba(107,90,69,0.1)", border: "1px solid rgba(107,90,69,0.7)", color: "#4a3728", width: 36, height: 36, cursor: "pointer", fontSize: "1.2rem", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 400 }}
               >
                 ‹
@@ -654,7 +660,7 @@ export default function Home() {
 
               {/* Right arrow */}
               <button
-                onClick={() => setParkingIdx((i) => (i + 1) % PARKING.length)}
+                onClick={() => parkingNav(1)}
                 style={{ flexShrink: 0, background: "rgba(107,90,69,0.1)", border: "1px solid rgba(107,90,69,0.7)", color: "#4a3728", width: 36, height: 36, cursor: "pointer", fontSize: "1.2rem", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: 400 }}
               >
                 ›
