@@ -139,48 +139,14 @@ function IconCake() {
 
 function IconDance() {
   return (
-    <svg width="52" height="56" viewBox="0 0 52 56" fill="none" stroke={c} strokeWidth="1.2" {...s}>
-      <defs>
-        <clipPath id="discoclip">
-          <circle cx="26" cy="34" r="19" />
-        </clipPath>
-      </defs>
-      {/* Mount */}
-      <line x1="26" y1="0" x2="26" y2="15" strokeWidth="0.9" />
-      <line x1="21" y1="15" x2="31" y2="15" strokeWidth="0.9" />
-
-      {/* Ball fill */}
-      <circle cx="26" cy="34" r="19" fill="rgba(107,90,69,0.07)" />
-
-      {/* Tile grid — clipped to sphere */}
-      <g clipPath="url(#discoclip)" strokeOpacity="0.3" strokeWidth="0.7">
-        {[20,24,28,32,36,38,42,46].map(y => (
-          <line key={`h${y}`} x1="7" y1={y} x2="45" y2={y} />
-        ))}
-        {[11,15,19,23,26,29,33,37,41].map(x => (
-          <line key={`v${x}`} x1={x} y1="15" x2={x} y2="53" />
-        ))}
-      </g>
-
-      {/* Ball outline */}
-      <circle cx="26" cy="34" r="19" />
-
-      {/* Highlight arc — top sheen */}
-      <path d="M 12,24 A 18,18 0 0,1 40,24" strokeOpacity="0.2" strokeWidth="4" />
-
-      {/* Twinkling light reflections */}
-      {([
-        [19, 27, 2.2, 0],
-        [31, 24, 1.6, 0.5],
-        [22, 38, 1.9, 1.0],
-        [35, 33, 1.4, 0.3],
-        [16, 36, 1.3, 0.8],
-        [29, 42, 1.5, 1.3],
-      ] as [number,number,number,number][]).map(([x, y, r, delay]) => (
-        <circle key={`${x}${y}`} cx={x} cy={y} r={r} fill={c} stroke="none"
-                style={{ animation: `twinkleStar 1.8s ease-in-out ${delay}s infinite` }} />
-      ))}
-    </svg>
+    <video
+      src="/dance.webm"
+      autoPlay
+      muted
+      loop
+      playsInline
+      style={{ width: 120, height: "auto", display: "block" }}
+    />
   );
 }
 
