@@ -546,7 +546,7 @@ export default function Home() {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div style={{ position: "relative" }}>
               {/* Vertical line — at left edge of the gap-to-icon column */}
-              <div style={{ position: "absolute", left: "6rem", top: 0, bottom: 0, width: "1px", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
+              <div style={{ position: "absolute", left: "6rem", top: 0, bottom: 0, width: "1px", transform: "translateX(-50%)", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
 
               {events.map((event, i) => {
                 const Icon = programIcons[event.title];
