@@ -47,8 +47,7 @@ function LangSwitcher() {
         <div style={{
           position: "absolute",
           top: "calc(100% + 0.5rem)",
-          left: "50%",
-          transform: "translateX(-50%)",
+          right: 0,
           background: "#fdf7f0",
           border: "1px solid rgba(107,90,69,0.3)",
           boxShadow: "0 4px 16px rgba(107,90,69,0.12)",
