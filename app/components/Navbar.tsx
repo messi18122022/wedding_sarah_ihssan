@@ -7,8 +7,8 @@ import { Lang } from "../i18n/translations";
 const SECTION_KEYS = ["join-us", "program", "gallery", "directions", "music", "gifts", "note"] as const;
 const NAV_KEYS = ["joinUs", "program", "gallery", "directions", "music", "gifts", "note"] as const;
 
-const LANGS: Lang[] = ["en", "fr", "de"];
-const LANG_LABELS: Record<Lang, string> = { en: "English", fr: "Français", de: "Deutsch" };
+const LANGS: Lang[] = ["en", "fr", "de", "ar"];
+const LANG_LABELS: Record<Lang, string> = { en: "English", fr: "Français", de: "Deutsch", ar: "العربية" };
 
 function LangSwitcher() {
   const { lang, setLang } = useLang();

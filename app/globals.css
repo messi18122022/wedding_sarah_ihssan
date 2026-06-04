@@ -80,8 +80,15 @@ body {
 }
 
 @keyframes dropdownOpen {
-  from { opacity: 0; transform: translateY(-6px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; transform: translateX(-50%) translateY(-6px); }
+  to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* Arabic: apply Cairo font to all text elements (overrides inline Jost styles) */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+[dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] button,
+[dir="rtl"] input, [dir="rtl"] a, [dir="rtl"] label, [dir="rtl"] div {
+  font-family: 'Cairo', sans-serif !important;
 }
 
 @keyframes fadeIn {

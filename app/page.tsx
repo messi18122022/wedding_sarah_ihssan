@@ -495,14 +495,14 @@ export default function Home() {
           </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
             <div style={{ position: "relative" }}>
-              <div style={{ position: "absolute", left: "6rem", top: 0, bottom: 0, width: "1px", transform: "translateX(-50%)", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
+              <div style={{ position: "absolute", insetInlineStart: "6rem", top: 0, bottom: 0, width: "1px", transform: "translateX(-50%)", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
 
               {events.map((event, i) => {
                 const Icon = programIcons[event.title];
                 const displayTitle = t.events[event.title as keyof typeof t.events];
                 return (
                   <div key={i} style={{ display: "grid", gridTemplateColumns: "6rem 2.5rem auto 8rem", alignItems: "center", padding: "0.55rem 0", position: "relative" }}>
-                    <div style={{ position: "absolute", left: "6rem", top: "50%", transform: "translate(-50%, -50%)", width: 8, height: 8, borderRadius: "50%", background: "#6b5a45", opacity: 0.65, zIndex: 2 }} />
+                    <div style={{ position: "absolute", insetInlineStart: "6rem", top: "50%", transform: "translate(-50%, -50%)", width: 8, height: 8, borderRadius: "50%", background: "#6b5a45", opacity: 0.65, zIndex: 2 }} />
                     <div style={{ textAlign: "right", paddingRight: "0.75rem" }}>
                       <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 300 }}>
                         {event.time}
