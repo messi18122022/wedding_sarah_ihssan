@@ -7,8 +7,8 @@ import { Lang } from "../i18n/translations";
 const SECTION_KEYS = ["join-us", "program", "gallery", "directions", "music", "gifts", "note"] as const;
 const NAV_KEYS = ["joinUs", "program", "gallery", "directions", "music", "gifts", "note"] as const;
 
-const LANGS: Lang[] = ["en", "fr", "de"];
-const LANG_LABELS: Record<Lang, string> = { en: "English", fr: "Français", de: "Deutsch" };
+const LANGS: Lang[] = ["en", "fr", "de", "ar"];
+const LANG_LABELS: Record<Lang, string> = { en: "English", fr: "Français", de: "Deutsch", ar: "العربية" };
 
 function LangSwitcher() {
   const { lang, setLang } = useLang();
@@ -44,15 +44,11 @@ function LangSwitcher() {
       </button>
 
       {open && (
+        <div style={{ position: "absolute", top: "calc(100% + 0.5rem)", left: "50%", transform: "translateX(-50%)", zIndex: 100 }}>
         <div style={{
-          position: "absolute",
-          top: "calc(100% + 0.5rem)",
-          left: "50%",
-          transform: "translateX(-50%)",
           background: "#fdf7f0",
           border: "1px solid rgba(107,90,69,0.3)",
           boxShadow: "0 4px 16px rgba(107,90,69,0.12)",
-          zIndex: 100,
           minWidth: "7rem",
           animation: "dropdownOpen 0.15s ease both",
         }}>
@@ -63,7 +59,7 @@ function LangSwitcher() {
               style={{
                 display: "block",
                 width: "100%",
-                textAlign: "left",
+                textAlign: "center",
                 padding: "0.6rem 1rem",
                 background: l === lang ? "rgba(107,90,69,0.1)" : "transparent",
                 border: "none",
@@ -82,6 +78,7 @@ function LangSwitcher() {
               {LANG_LABELS[l]}
             </button>
           ))}
+        </div>
         </div>
       )}
     </div>
@@ -129,10 +126,11 @@ export default function Navbar() {
         borderTop: "2px solid #6b5a45",
       }}
     >
-      <div className="max-w-5xl mx-auto px-6 flex items-center justify-between" style={{ height: "4.5rem", position: "relative" }}>
+      <div dir="ltr" className="max-w-5xl mx-auto px-6 flex items-center justify-between" style={{ height: "4.5rem", position: "relative" }}>
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="keep-georgia"
           style={{ color: "#6b5a45", fontFamily: "Georgia, serif", fontSize: "1.3rem", letterSpacing: "0.15em", background: "none", border: "none", cursor: "pointer" }}
         >
           S &amp; I

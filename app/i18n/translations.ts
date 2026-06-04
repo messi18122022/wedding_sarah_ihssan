@@ -1,4 +1,4 @@
-export type Lang = "en" | "fr" | "de";
+export type Lang = "en" | "fr" | "de" | "ar";
 
 const en = {
   nav: {
@@ -225,5 +225,80 @@ const de: typeof en = {
   },
 };
 
-export const translations = { en, fr, de };
+const ar: typeof en = {
+  nav: {
+    joinUs: "انضموا إلينا",
+    program: "البرنامج",
+    gallery: "معرض الصور",
+    directions: "الاتجاهات",
+    music: "الموسيقى",
+    gifts: "الهدايا",
+    note: "كلمة منّا",
+  },
+  countdown: { days: "أيام", hours: "ساعات", min: "دقائق", sec: "ثواني" },
+  joinUs: {
+    title: "انضموا إلينا",
+    deadlinePre: "يرجى التسجيل قبل",
+    deadlineDate: "١ أغسطس ٢٠٢٦",
+    deadlinePost: "",
+    howMany: "كم عدد الأشخاص الذين تسجلونهم؟",
+    guest: "ضيف",
+    firstName: "الاسم الأول",
+    lastName: "اسم العائلة",
+    allergies: "هل لديك حساسية؟",
+    error: "يرجى ملء جميع الأسماء.",
+    confirm: "تأكيد",
+    sending: "جارٍ الإرسال...",
+    successTitle: "نراكم في السادس!",
+    successText: "شكراً لتسجيلكم. نتطلع للاحتفال معكم.",
+  },
+  meals: [
+    { id: "Beef (Halal)", title: "لحم البقر (حلال)", description: "شريحة لحم بقري مشوية مع صلصة كافيه دو باريس، خضروات موسمية وبطاطا مشوية" },
+    { id: "Fish", title: "سمك", description: "فيليه سمك بيرش مقرمش مع رغوة الزعفران، خضروات موسمية وبطاطا مشوية" },
+    { id: "Vegan", title: "نباتي", description: "راڤيولو ليمون وزعتر عضوي على صلصة جوز الهند والزعفران مع خضروات موسمية وتوفو مدخن" },
+  ],
+  program: { title: "البرنامج" },
+  events: {
+    "Apéro": "استقبال الضيوف",
+    "Dinner": "العشاء",
+    "Cake Cutting": "تقطيع الكعكة",
+    "Dance Party": "حفلة الرقص",
+    "Last Dance": "الرقصة الأخيرة",
+  },
+  gallery: {
+    title: "معرض الصور",
+    comingSoon: "قريباً",
+    description: "بعد اليوم الكبير، ستجدون هنا كل الذكريات الجميلة. عودوا بعد ٦ سبتمبر ٢٠٢٦.",
+  },
+  directions: {
+    title: "الاتجاهات",
+    byTrain: "بالقطار",
+    trainLine1: "خذوا الخط S6 من زيورخ HB باتجاه رابرسفيل.",
+    trainLine2: "انزلوا في",
+    trainLine3: "٥ دقائق سيراً على الأقدام إلى القاعة على طول البحيرة.",
+    parking: "مواقف السيارات",
+    parkingSlide: "تصفح الخيارات الأربع",
+  },
+  music: {
+    title: "الموسيقى",
+    subtitle: "أي أغنية تريدون؟ ابحثوا وأضيفوا أمنيتكم إلى قائمتنا الموسيقية.",
+    placeholder: "ابحث عن أغنية أو فنان...",
+    addToPlaylist: "أضف إلى القائمة ♪",
+    adding: "جارٍ الإضافة...",
+    added: "✦ تمت إضافة الأغنية!",
+    duplicate: "هذه الأغنية موجودة بالفعل!",
+  },
+  gifts: {
+    title: "الهدايا",
+    text: "وجودكم معنا هو أعظم هدية. إن أردتم المساهمة في شهر عسلنا، فنحن ممتنون لكل بادرة محبة.",
+    button: "قدم هدية",
+    note: "عبر Revolut — لا حاجة لحساب",
+  },
+  note: {
+    title: "كلمة منّا",
+    text: "نتطلع إلى الاحتفال بحبنا معكم. وجودكم سيجعل يومنا أكثر تميزاً.",
+  },
+};
+
+export const translations = { en, fr, de, ar };
 export type T = typeof en;

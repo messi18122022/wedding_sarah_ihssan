@@ -84,6 +84,19 @@ body {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Arabic: apply Cairo font to all text elements (overrides inline Jost styles) */
+[dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3,
+[dir="rtl"] p, [dir="rtl"] span, [dir="rtl"] button,
+[dir="rtl"] input, [dir="rtl"] a, [dir="rtl"] label, [dir="rtl"] div {
+  font-family: 'Cairo', sans-serif !important;
+}
+
+/* Preserve original fonts for hardcoded design elements (no translated text) */
+[dir="rtl"] .keep-georgia    { font-family: 'Georgia', serif !important; }
+[dir="rtl"] .keep-cormorant  { font-family: 'Cormorant Garamond', Georgia, serif !important; }
+[dir="rtl"] .keep-jost       { font-family: 'Jost', sans-serif !important; }
+[dir="rtl"] .keep-scheherazade { font-family: 'Scheherazade New', serif !important; }
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }

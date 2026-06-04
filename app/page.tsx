@@ -263,8 +263,17 @@ function MealDropdown({ value, onChange }: { value: string; onChange: (v: string
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 
+function toArabicNumerals(str: string) {
+  return str.replace(/[0-9]/g, d => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
+}
+
+function formatDistance(dist: string, lang: string) {
+  if (lang !== "ar") return dist;
+  return toArabicNumerals(dist.replace("min", "دقيقة").replace(" m)", " م)"));
+}
+
 export default function Home() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const heroTop = "#5879a2";
   const heroMid = "#5879a2";
 
@@ -395,21 +404,21 @@ export default function Home() {
           className="flex flex-col items-center justify-start px-6 text-center"
           style={{ paddingTop: "5rem", paddingBottom: "0", gap: "0" }}
         >
-          <p className="fade-in-up" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.2rem, 3.5vw, 1.9rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
+          <p className="fade-in-up keep-scheherazade" style={{ color: "rgba(255,255,255,0.9)", fontFamily: "'Scheherazade New', serif", fontSize: "clamp(1.2rem, 3.5vw, 1.9rem)", marginBottom: "0.4rem", lineHeight: 1.4 }}>
             بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
           </p>
-          <h1 className="fade-in-up font-light" style={{ color: "#fff", fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", letterSpacing: "0.1em", fontSize: "clamp(2rem, 8vw, 4rem)", lineHeight: 1.1, marginBottom: "0.6rem" }}>
+          <h1 className="fade-in-up font-light keep-cormorant" style={{ color: "#fff", fontFamily: "'Cormorant Garamond', Georgia, serif", fontStyle: "italic", letterSpacing: "0.1em", fontSize: "clamp(2rem, 8vw, 4rem)", lineHeight: 1.1, marginBottom: "0.6rem" }}>
             Sarah &amp; Ihssan
           </h1>
           <div className="fade-in-up" style={{ position: "relative", width: "100vw", maxWidth: "520px", marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }}>
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "22%", background: `linear-gradient(to bottom, ${heroMid}, transparent)`, zIndex: 1, pointerEvents: "none" }} />
             <video src="/video.mp4" autoPlay muted loop playsInline style={{ width: "100%", display: "block", objectFit: "cover" }} />
             <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "45%", background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.55))", pointerEvents: "none" }} />
-            <div style={{ position: "absolute", bottom: "1.2rem", left: 0, right: 0, textAlign: "center", padding: "0 1rem", zIndex: 2 }}>
-              <p style={{ fontSize: "1.1rem", color: "#fff", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.25rem", fontFamily: "'Jost', sans-serif" }}>
+            <div dir="ltr" style={{ position: "absolute", bottom: "1.2rem", left: 0, right: 0, textAlign: "center", padding: "0 1rem", zIndex: 2 }}>
+              <p className="keep-jost" style={{ fontSize: "1.1rem", color: "#fff", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.25rem", fontFamily: "'Jost', sans-serif" }}>
                 6 September 2026 &nbsp;<span style={{ fontWeight: 200, opacity: 0.7 }}>|</span>&nbsp; 17:00
               </p>
-              <p style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.85)", letterSpacing: "0.08em", fontFamily: "'Jost', sans-serif" }}>
+              <p className="keep-jost" style={{ fontSize: "0.85rem", color: "rgba(255,255,255,0.85)", letterSpacing: "0.08em", fontFamily: "'Jost', sans-serif" }}>
                 Sonne Boutiquehotel &amp; Seerestaurant<br />Seestrasse 120, 8700 Küsnacht
               </p>
             </div>
@@ -417,10 +426,10 @@ export default function Home() {
 
           {/* Countdown */}
           <div style={{ textAlign: "center", padding: "1.4rem 0 1.5rem", width: "100%" }}>
-            <div style={{ display: "flex", justifyContent: "center", gap: "clamp(1.2rem, 5vw, 2.5rem)" }}>
+            <div dir="ltr" style={{ display: "flex", justifyContent: "center", gap: "clamp(1.2rem, 5vw, 2.5rem)" }}>
               {countdownItems.map(({ value, label }) => (
                 <div key={label} style={{ textAlign: "center", minWidth: "3rem" }}>
-                  <div style={{ fontSize: "clamp(1.8rem, 7vw, 2.6rem)", fontWeight: 300, color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1 }}>
+                  <div className="keep-cormorant" style={{ fontSize: "clamp(1.8rem, 7vw, 2.6rem)", fontWeight: 300, color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1 }}>
                     {String(value).padStart(2, "0")}
                   </div>
                   <div style={{ fontSize: "0.62rem", letterSpacing: "0.2em", color: "#8a7060", textTransform: "uppercase", fontFamily: "'Jost', sans-serif", marginTop: "0.3rem" }}>
@@ -494,18 +503,18 @@ export default function Home() {
             <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>{t.program.title}</h2>
           </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <div style={{ position: "relative" }}>
-              <div style={{ position: "absolute", left: "6rem", top: 0, bottom: 0, width: "1px", transform: "translateX(-50%)", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
+            <div dir="ltr" style={{ position: "relative" }}>
+              <div style={{ position: "absolute", insetInlineStart: "6rem", top: 0, bottom: 0, width: "1px", transform: "translateX(-50%)", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
 
               {events.map((event, i) => {
                 const Icon = programIcons[event.title];
                 const displayTitle = t.events[event.title as keyof typeof t.events];
                 return (
                   <div key={i} style={{ display: "grid", gridTemplateColumns: "6rem 2.5rem auto 8rem", alignItems: "center", padding: "0.55rem 0", position: "relative" }}>
-                    <div style={{ position: "absolute", left: "6rem", top: "50%", transform: "translate(-50%, -50%)", width: 8, height: 8, borderRadius: "50%", background: "#6b5a45", opacity: 0.65, zIndex: 2 }} />
+                    <div style={{ position: "absolute", insetInlineStart: "6rem", top: "50%", transform: "translate(-50%, -50%)", width: 8, height: 8, borderRadius: "50%", background: "#6b5a45", opacity: 0.65, zIndex: 2 }} />
                     <div style={{ textAlign: "right", paddingRight: "0.75rem" }}>
                       <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 300 }}>
-                        {event.time}
+                        {lang === "ar" ? toArabicNumerals(event.time === "00:00" ? "24:00" : event.time) : event.time}
                       </span>
                     </div>
                     <div />
@@ -618,7 +627,7 @@ export default function Home() {
                   {PARKING[parkingIdx].name}
                 </p>
                 <p style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.78rem", fontWeight: 200, letterSpacing: "0.05em" }}>
-                  🚶 {PARKING[parkingIdx].distance}
+                  🚶 {formatDistance(PARKING[parkingIdx].distance, lang)}
                 </p>
               </div>
               <div style={{ display: "flex", gap: "0.4rem" }}>
@@ -748,7 +757,7 @@ export default function Home() {
             {t.note.text}
           </p>
           <p style={{ color: "#6b5a45", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.3rem", fontWeight: 300, marginTop: "2rem", letterSpacing: "0.08em" }}>
-            — Sarah &amp; Ihssan
+            {lang === "ar" ? "— سارة وإحسان" : "— Sarah & Ihssan"}
           </p>
         </div>
       </section>
