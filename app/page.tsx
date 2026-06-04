@@ -417,10 +417,10 @@ export default function Home() {
 
           {/* Countdown */}
           <div style={{ textAlign: "center", padding: "1.4rem 0 1.5rem", width: "100%" }}>
-            <div style={{ display: "flex", justifyContent: "center", gap: "clamp(1.2rem, 5vw, 2.5rem)" }}>
+            <div dir="ltr" style={{ display: "flex", justifyContent: "center", gap: "clamp(1.2rem, 5vw, 2.5rem)" }}>
               {countdownItems.map(({ value, label }) => (
                 <div key={label} style={{ textAlign: "center", minWidth: "3rem" }}>
-                  <div style={{ fontSize: "clamp(1.8rem, 7vw, 2.6rem)", fontWeight: 300, color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1 }}>
+                  <div className="keep-cormorant" style={{ fontSize: "clamp(1.8rem, 7vw, 2.6rem)", fontWeight: 300, color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", lineHeight: 1 }}>
                     {String(value).padStart(2, "0")}
                   </div>
                   <div style={{ fontSize: "0.62rem", letterSpacing: "0.2em", color: "#8a7060", textTransform: "uppercase", fontFamily: "'Jost', sans-serif", marginTop: "0.3rem" }}>
