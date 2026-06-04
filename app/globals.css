@@ -91,6 +91,12 @@ body {
   font-family: 'Cairo', sans-serif !important;
 }
 
+/* Preserve original fonts for hardcoded design elements (no translated text) */
+[dir="rtl"] .keep-georgia    { font-family: 'Georgia', serif !important; }
+[dir="rtl"] .keep-cormorant  { font-family: 'Cormorant Garamond', Georgia, serif !important; }
+[dir="rtl"] .keep-jost       { font-family: 'Jost', sans-serif !important; }
+[dir="rtl"] .keep-scheherazade { font-family: 'Scheherazade New', serif !important; }
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to   { opacity: 1; }
