@@ -267,6 +267,11 @@ function toArabicNumerals(str: string) {
   return str.replace(/[0-9]/g, d => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
 }
 
+function formatDistance(dist: string, lang: string) {
+  if (lang !== "ar") return dist;
+  return toArabicNumerals(dist.replace("min", "دقيقة").replace(" m)", " م)"));
+}
+
 export default function Home() {
   const { t, lang } = useLang();
   const heroTop = "#5879a2";
@@ -622,7 +627,7 @@ export default function Home() {
                   {PARKING[parkingIdx].name}
                 </p>
                 <p style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.78rem", fontWeight: 200, letterSpacing: "0.05em" }}>
-                  🚶 {PARKING[parkingIdx].distance}
+                  🚶 {formatDistance(PARKING[parkingIdx].distance, lang)}
                 </p>
               </div>
               <div style={{ display: "flex", gap: "0.4rem" }}>
