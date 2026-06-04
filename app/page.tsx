@@ -757,7 +757,7 @@ export default function Home() {
             {t.note.text}
           </p>
           <p style={{ color: "#6b5a45", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.3rem", fontWeight: 300, marginTop: "2rem", letterSpacing: "0.08em" }}>
-            — Sarah &amp; Ihssan
+            {lang === "ar" ? "— سارة وإحسان" : "— Sarah & Ihssan"}
           </p>
         </div>
       </section>
