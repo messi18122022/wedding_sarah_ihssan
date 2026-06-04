@@ -178,7 +178,7 @@ const de: typeof en = {
     successText: "Danke für Ihre Anmeldung. Wir freuen uns sehr auf euch.",
   },
   meals: [
-    { id: "Beef (Halal)", title: "Rindfleisch (Halal)", description: "Gebratenes Rinder-Entrecôte mit hausgemachter Café de Paris Sauce, Saisongemüse und Bratkartoffeln" },
+    { id: "Beef (Halal)", title: "Rinder-Entrecôte (Halal)", description: "Gebratenes Rinder-Entrecôte mit hausgemachter Café de Paris Sauce, Saisongemüse und Bratkartoffeln" },
     { id: "Fish", title: "Fisch", description: "Knusprig gebratenes Zanderfilet mit Safranschaum, Saisongemüse und Bratkartoffeln" },
     { id: "Vegan", title: "Vegan", description: "Bio-Zitronen-Thymian-Raviolo grande auf Safran-Kokos-Sauce mit saisonalem Marktgemüse und geräuchertem Tofu" },
   ],
