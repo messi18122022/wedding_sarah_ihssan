@@ -129,7 +129,7 @@ export default function Navbar() {
         borderTop: "2px solid #6b5a45",
       }}
     >
-      <div className="max-w-5xl mx-auto px-6 flex items-center justify-between" style={{ height: "4.5rem", position: "relative" }}>
+      <div dir="ltr" className="max-w-5xl mx-auto px-6 flex items-center justify-between" style={{ height: "4.5rem", position: "relative" }}>
         {/* Logo */}
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
