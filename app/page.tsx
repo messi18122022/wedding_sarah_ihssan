@@ -494,7 +494,7 @@ export default function Home() {
             <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>{t.program.title}</h2>
           </div>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <div style={{ position: "relative" }}>
+            <div dir="ltr" style={{ position: "relative" }}>
               <div style={{ position: "absolute", insetInlineStart: "6rem", top: 0, bottom: 0, width: "1px", transform: "translateX(-50%)", background: "linear-gradient(to bottom, transparent, #6b5a45 5%, #6b5a45 95%, transparent)", opacity: 0.3 }} />
 
               {events.map((event, i) => {
