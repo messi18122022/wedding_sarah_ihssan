@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLang } from "../contexts/LanguageContext";
 import { Lang } from "../i18n/translations";
 
@@ -12,32 +12,78 @@ const LANG_LABELS: Record<Lang, string> = { en: "English", fr: "Français", de: 
 
 function LangSwitcher() {
   const { lang, setLang } = useLang();
-  const idx = LANGS.indexOf(lang);
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
-  function prev() { setLang(LANGS[(idx - 1 + LANGS.length) % LANGS.length]); }
-  function next() { setLang(LANGS[(idx + 1) % LANGS.length]); }
-
-  const btnStyle: React.CSSProperties = {
-    background: "none",
-    border: "none",
-    cursor: "pointer",
-    color: "#6b5a45",
-    fontSize: "0.95rem",
-    padding: "0 0.2rem",
-    lineHeight: 1,
-    fontFamily: "'Jost', sans-serif",
-    fontWeight: 300,
-    display: "flex",
-    alignItems: "center",
-  };
+  useEffect(() => {
+    function handleClick(e: MouseEvent) {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    }
+    document.addEventListener("mousedown", handleClick);
+    return () => document.removeEventListener("mousedown", handleClick);
+  }, []);
 
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "0.1rem" }}>
-      <button onClick={prev} style={btnStyle} aria-label="Previous language">‹</button>
-      <span style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "0.68rem", letterSpacing: "0.1em", textAlign: "center", fontWeight: 400, whiteSpace: "nowrap", position: "relative", top: "1px" }}>
+    <div ref={ref} style={{ position: "relative" }}>
+      <button
+        onClick={() => setOpen(!open)}
+        style={{
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          color: "#6b5a45",
+          fontFamily: "'Jost', sans-serif",
+          fontSize: "0.92rem",
+          fontWeight: 400,
+          letterSpacing: "0.1em",
+          padding: "0.2rem 0",
+          whiteSpace: "nowrap",
+        }}
+      >
         {LANG_LABELS[lang]}
-      </span>
-      <button onClick={next} style={btnStyle} aria-label="Next language">›</button>
+      </button>
+
+      {open && (
+        <div style={{
+          position: "absolute",
+          top: "calc(100% + 0.5rem)",
+          left: "50%",
+          transform: "translateX(-50%)",
+          background: "#fdf7f0",
+          border: "1px solid rgba(107,90,69,0.3)",
+          boxShadow: "0 4px 16px rgba(107,90,69,0.12)",
+          zIndex: 100,
+          minWidth: "7rem",
+          animation: "dropdownOpen 0.15s ease both",
+        }}>
+          {LANGS.map((l) => (
+            <button
+              key={l}
+              onClick={() => { setLang(l); setOpen(false); }}
+              style={{
+                display: "block",
+                width: "100%",
+                textAlign: "left",
+                padding: "0.6rem 1rem",
+                background: l === lang ? "rgba(107,90,69,0.1)" : "transparent",
+                border: "none",
+                borderBottom: "1px solid rgba(107,90,69,0.1)",
+                color: l === lang ? "#4a3728" : "#6b5a45",
+                fontFamily: "'Jost', sans-serif",
+                fontSize: "0.85rem",
+                fontWeight: l === lang ? 400 : 300,
+                letterSpacing: "0.08em",
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={(e) => { if (l !== lang) e.currentTarget.style.background = "rgba(107,90,69,0.06)"; }}
+              onMouseLeave={(e) => { if (l !== lang) e.currentTarget.style.background = "transparent"; }}
+            >
+              {LANG_LABELS[l]}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
