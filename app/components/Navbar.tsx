@@ -1,20 +1,50 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useLang } from "../contexts/LanguageContext";
+import { Lang } from "../i18n/translations";
 
-const links = [
-  { id: "join-us", label: "Join Us" },
-  { id: "program", label: "Program" },
-  { id: "gallery", label: "Gallery" },
-  { id: "directions", label: "Directions" },
-  { id: "music", label: "Music" },
-  { id: "gifts", label: "Gifts" },
-  { id: "note", label: "A Note" },
-];
+const SECTION_KEYS = ["join-us", "program", "gallery", "directions", "music", "gifts", "note"] as const;
+const NAV_KEYS = ["joinUs", "program", "gallery", "directions", "music", "gifts", "note"] as const;
+
+const LANGS: Lang[] = ["en", "fr", "de"];
+
+function LangSwitcher() {
+  const { lang, setLang } = useLang();
+  const idx = LANGS.indexOf(lang);
+
+  function prev() { setLang(LANGS[(idx - 1 + LANGS.length) % LANGS.length]); }
+  function next() { setLang(LANGS[(idx + 1) % LANGS.length]); }
+
+  const btnStyle: React.CSSProperties = {
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    color: "#6b5a45",
+    fontSize: "0.95rem",
+    padding: "0 0.2rem",
+    lineHeight: 1,
+    fontFamily: "'Jost', sans-serif",
+    fontWeight: 300,
+  };
+
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: "0.1rem" }}>
+      <button onClick={prev} style={btnStyle} aria-label="Previous language">‹</button>
+      <span style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "0.68rem", letterSpacing: "0.18em", minWidth: "1.6rem", textAlign: "center", fontWeight: 400 }}>
+        {lang.toUpperCase()}
+      </span>
+      <button onClick={next} style={btnStyle} aria-label="Next language">›</button>
+    </div>
+  );
+}
 
 export default function Navbar() {
+  const { t } = useLang();
   const [active, setActive] = useState("");
   const [open, setOpen] = useState(false);
+
+  const links = SECTION_KEYS.map((id, i) => ({ id, label: t.nav[NAV_KEYS[i]] }));
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -59,7 +89,12 @@ export default function Navbar() {
           S &amp; I
         </button>
 
-        {/* Desktop links */}
+        {/* Language switcher — mobile only, centered between logo and hamburger */}
+        <div className="md:hidden" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
+          <LangSwitcher />
+        </div>
+
+        {/* Desktop links + language switcher */}
         <div className="hidden md:flex items-center gap-8">
           {links.map(({ id, label }) => (
             <button
@@ -86,6 +121,9 @@ export default function Navbar() {
               {label}
             </button>
           ))}
+          <div style={{ borderLeft: "1px solid rgba(107,90,69,0.25)", paddingLeft: "1rem" }}>
+            <LangSwitcher />
+          </div>
         </div>
 
         {/* Mobile hamburger */}
