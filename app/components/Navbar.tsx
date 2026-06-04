@@ -44,14 +44,11 @@ function LangSwitcher() {
       </button>
 
       {open && (
+        <div style={{ position: "absolute", top: "calc(100% + 0.5rem)", left: "50%", transform: "translateX(-50%)", zIndex: 100 }}>
         <div style={{
-          position: "absolute",
-          top: "calc(100% + 0.5rem)",
-          right: 0,
           background: "#fdf7f0",
           border: "1px solid rgba(107,90,69,0.3)",
           boxShadow: "0 4px 16px rgba(107,90,69,0.12)",
-          zIndex: 100,
           minWidth: "7rem",
           animation: "dropdownOpen 0.15s ease both",
         }}>
@@ -81,6 +78,7 @@ function LangSwitcher() {
               {LANG_LABELS[l]}
             </button>
           ))}
+        </div>
         </div>
       )}
     </div>
