@@ -8,7 +8,7 @@ const en = {
     directions: "Directions",
     music: "Music",
     gifts: "Gifts",
-    note: "A Note",
+    note: "A Note from Us",
   },
   countdown: { days: "Days", hours: "Hours", min: "Min", sec: "Sec" },
   joinUs: {
@@ -77,13 +77,13 @@ const en = {
 
 const fr: typeof en = {
   nav: {
-    joinUs: "Rejoindre",
+    joinUs: "Rejoignez-nous",
     program: "Programme",
     gallery: "Galerie",
     directions: "Itinéraire",
     music: "Musique",
     gifts: "Cadeaux",
-    note: "Un Mot",
+    note: "Un Mot de Notre Part",
   },
   countdown: { days: "Jours", hours: "Heures", min: "Min", sec: "Sec" },
   joinUs: {
@@ -152,13 +152,13 @@ const fr: typeof en = {
 
 const de: typeof en = {
   nav: {
-    joinUs: "Anmelden",
+    joinUs: "Mitfeiern",
     program: "Programm",
     gallery: "Galerie",
     directions: "Anfahrt",
     music: "Musik",
     gifts: "Geschenke",
-    note: "Ein Wort",
+    note: "Ein Wort von uns",
   },
   countdown: { days: "Tage", hours: "Std.", min: "Min", sec: "Sek" },
   joinUs: {
@@ -178,7 +178,7 @@ const de: typeof en = {
     successText: "Danke für Ihre Anmeldung. Wir freuen uns sehr auf euch.",
   },
   meals: [
-    { id: "Beef (Halal)", title: "Rindfleisch (Halal)", description: "Gebratenes Rinder-Entrecôte mit hausgemachter Café de Paris Sauce, Saisongemüse und Bratkartoffeln" },
+    { id: "Beef (Halal)", title: "Rinder-Entrecôte (Halal)", description: "Gebratenes Rinder-Entrecôte mit hausgemachter Café de Paris Sauce, Saisongemüse und Bratkartoffeln" },
     { id: "Fish", title: "Fisch", description: "Knusprig gebratenes Zanderfilet mit Safranschaum, Saisongemüse und Bratkartoffeln" },
     { id: "Vegan", title: "Vegan", description: "Bio-Zitronen-Thymian-Raviolo grande auf Safran-Kokos-Sauce mit saisonalem Marktgemüse und geräuchertem Tofu" },
   ],
