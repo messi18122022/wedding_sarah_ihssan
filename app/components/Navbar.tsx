@@ -59,7 +59,7 @@ function LangSwitcher() {
               style={{
                 display: "block",
                 width: "100%",
-                textAlign: "left",
+                textAlign: "center",
                 padding: "0.6rem 1rem",
                 background: l === lang ? "rgba(107,90,69,0.1)" : "transparent",
                 border: "none",
