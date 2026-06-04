@@ -263,8 +263,12 @@ function MealDropdown({ value, onChange }: { value: string; onChange: (v: string
 
 // ─── Page ────────────────────────────────────────────────────────────────────
 
+function toArabicNumerals(str: string) {
+  return str.replace(/[0-9]/g, d => '٠١٢٣٤٥٦٧٨٩'[parseInt(d)]);
+}
+
 export default function Home() {
-  const { t } = useLang();
+  const { t, lang } = useLang();
   const heroTop = "#5879a2";
   const heroMid = "#5879a2";
 
@@ -505,7 +509,7 @@ export default function Home() {
                     <div style={{ position: "absolute", insetInlineStart: "6rem", top: "50%", transform: "translate(-50%, -50%)", width: 8, height: 8, borderRadius: "50%", background: "#6b5a45", opacity: 0.65, zIndex: 2 }} />
                     <div style={{ textAlign: "right", paddingRight: "0.75rem" }}>
                       <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 300 }}>
-                        {event.time}
+                        {lang === "ar" ? toArabicNumerals(event.time) : event.time}
                       </span>
                     </div>
                     <div />
