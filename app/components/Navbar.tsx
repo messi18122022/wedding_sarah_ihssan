@@ -27,12 +27,14 @@ function LangSwitcher() {
     lineHeight: 1,
     fontFamily: "'Jost', sans-serif",
     fontWeight: 300,
+    display: "flex",
+    alignItems: "center",
   };
 
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "0.1rem" }}>
       <button onClick={prev} style={btnStyle} aria-label="Previous language">‹</button>
-      <span style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "0.68rem", letterSpacing: "0.1em", textAlign: "center", fontWeight: 400, whiteSpace: "nowrap" }}>
+      <span style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "0.68rem", letterSpacing: "0.1em", textAlign: "center", fontWeight: 400, whiteSpace: "nowrap", position: "relative", top: "1px" }}>
         {LANG_LABELS[lang]}
       </span>
       <button onClick={next} style={btnStyle} aria-label="Next language">›</button>
