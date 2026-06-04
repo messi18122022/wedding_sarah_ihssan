@@ -8,7 +8,7 @@ const en = {
     directions: "Directions",
     music: "Music",
     gifts: "Gifts",
-    note: "A Note from Us",
+    note: "A Note",
   },
   countdown: { days: "Days", hours: "Hours", min: "Min", sec: "Sec" },
   joinUs: {
@@ -77,13 +77,13 @@ const en = {
 
 const fr: typeof en = {
   nav: {
-    joinUs: "Rejoignez-nous",
+    joinUs: "Rejoindre",
     program: "Programme",
     gallery: "Galerie",
     directions: "Itinéraire",
     music: "Musique",
     gifts: "Cadeaux",
-    note: "Un Mot de Notre Part",
+    note: "Un Mot",
   },
   countdown: { days: "Jours", hours: "Heures", min: "Min", sec: "Sec" },
   joinUs: {
@@ -152,13 +152,13 @@ const fr: typeof en = {
 
 const de: typeof en = {
   nav: {
-    joinUs: "Mitfeiern",
+    joinUs: "Anmelden",
     program: "Programm",
     gallery: "Galerie",
     directions: "Anfahrt",
     music: "Musik",
     gifts: "Geschenke",
-    note: "Ein Wort von uns",
+    note: "Ein Wort",
   },
   countdown: { days: "Tage", hours: "Std.", min: "Min", sec: "Sek" },
   joinUs: {
