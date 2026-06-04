@@ -509,7 +509,7 @@ export default function Home() {
                     <div style={{ position: "absolute", insetInlineStart: "6rem", top: "50%", transform: "translate(-50%, -50%)", width: 8, height: 8, borderRadius: "50%", background: "#6b5a45", opacity: 0.65, zIndex: 2 }} />
                     <div style={{ textAlign: "right", paddingRight: "0.75rem" }}>
                       <span style={{ color: "#8a7060", fontFamily: "'Jost', sans-serif", fontSize: "0.85rem", letterSpacing: "0.1em", fontWeight: 300 }}>
-                        {lang === "ar" ? toArabicNumerals(event.time) : event.time}
+                        {lang === "ar" ? toArabicNumerals(event.time === "00:00" ? "24:00" : event.time) : event.time}
                       </span>
                     </div>
                     <div />
