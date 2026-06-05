@@ -716,7 +716,7 @@ export default function Home() {
             </p>
 
             <a
-              href="https://revolut.me/messi_18122022"
+              href="https://revolut.me/moini77"
               target="_blank"
               rel="noopener noreferrer"
               style={{
