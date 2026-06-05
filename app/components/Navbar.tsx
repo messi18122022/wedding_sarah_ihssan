@@ -38,9 +38,13 @@ function LangSwitcher() {
           letterSpacing: "0.1em",
           padding: "0.2rem 0",
           whiteSpace: "nowrap",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.3rem",
         }}
       >
         {LANG_LABELS[lang]}
+        <span style={{ fontSize: "0.7em", opacity: 0.6, lineHeight: 1, marginTop: "1px" }}>▾</span>
       </button>
 
       {open && (

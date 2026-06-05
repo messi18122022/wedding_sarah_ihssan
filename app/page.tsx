@@ -522,7 +522,7 @@ export default function Home() {
                       {Icon && <Icon />}
                     </div>
                     <div style={{ paddingLeft: "1rem" }}>
-                      <span style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.4rem", fontWeight: 300, letterSpacing: "0.05em" }}>
+                      <span style={{ color: "#4a3728", fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.4rem", fontWeight: 300, letterSpacing: "0.05em", whiteSpace: "pre-line" }}>
                         {displayTitle}
                       </span>
                     </div>
