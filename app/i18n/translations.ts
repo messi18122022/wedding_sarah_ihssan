@@ -186,7 +186,7 @@ const de: typeof en = {
   events: {
     "Apéro": "Apéro",
     "Dinner": "Abendessen",
-    "Cake Cutting": "Kuchenschneiden",
+    "Cake Cutting": "Kuchen-\nschneiden",
     "Dance Party": "Tanzparty",
     "Last Dance": "Letzter Tanz",
   },
