@@ -44,7 +44,7 @@ function LangSwitcher() {
         }}
       >
         {LANG_LABELS[lang]}
-        <span style={{ fontSize: "0.9em", opacity: 0.75, lineHeight: 1, marginTop: "1px" }} className="md:text-[0.9em] text-[1.3em]">▾</span>
+        <span style={{ fontSize: "0.9em", opacity: 0.75, lineHeight: 1, marginTop: "1px" }} className="md:text-[0.9em] text-[1.8em]">▾</span>
       </button>
 
       {open && (
