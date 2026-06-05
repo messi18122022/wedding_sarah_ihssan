@@ -269,7 +269,7 @@ function toArabicNumerals(str: string) {
 
 function formatDistance(dist: string, lang: string) {
   if (lang !== "ar") return dist;
-  return toArabicNumerals(dist.replace("min", "دقيقة").replace(" m)", " م)"));
+  return toArabicNumerals(dist.replace("min", "دقائق").replace(" m)", " م)"));
 }
 
 export default function Home() {
