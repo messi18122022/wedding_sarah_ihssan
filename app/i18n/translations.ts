@@ -166,7 +166,7 @@ const de: typeof en = {
     deadlinePre: "Bitte bis",
     deadlineDate: "1. August 2026",
     deadlinePost: "anmelden",
-    howMany: "Wie viele Personen melden Sie an?",
+    howMany: "Wie viele seid ihr?",
     guest: "Gast",
     firstName: "Vorname",
     lastName: "Nachname",
