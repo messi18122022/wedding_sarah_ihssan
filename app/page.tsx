@@ -269,7 +269,7 @@ function toArabicNumerals(str: string) {
 
 function formatDistance(dist: string, lang: string) {
   if (lang !== "ar") return dist;
-  return toArabicNumerals(dist.replace("min", "دقيقة").replace(" m)", " م)"));
+  return toArabicNumerals(dist.replace("min", "دقائق").replace(" m)", " م)"));
 }
 
 export default function Home() {
@@ -475,7 +475,7 @@ export default function Home() {
               <div className="flex flex-col gap-4 mb-8">
                 {guests.map((guest, i) => (
                   <div key={i} style={{ border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.05)", padding: "1.25rem" }}>
-                    <p style={{ color: "#6b5a45", fontSize: "0.8rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.75rem" }}>{t.joinUs.guest} {i + 1}</p>
+                    <p style={{ color: "#6b5a45", fontSize: "0.8rem", letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "0.75rem" }}>{t.joinUs.guest} {lang === "ar" ? toArabicNumerals(String(i + 1)) : i + 1}</p>
                     <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
                       <input type="text" placeholder={t.joinUs.firstName} value={guest.first_name} onChange={(e) => handleGuestChange(i, "first_name", e.target.value)} style={{ background: "#fff", border: "1px solid rgba(107,90,69,0.3)", color: "#4a3728", padding: "0.6rem 0.75rem", fontSize: "0.9rem", outline: "none", fontFamily: "'Jost', sans-serif" }} />
                       <input type="text" placeholder={t.joinUs.lastName} value={guest.last_name} onChange={(e) => handleGuestChange(i, "last_name", e.target.value)} style={{ background: "#fff", border: "1px solid rgba(107,90,69,0.3)", color: "#4a3728", padding: "0.6rem 0.75rem", fontSize: "0.9rem", outline: "none", fontFamily: "'Jost', sans-serif" }} />
@@ -716,7 +716,7 @@ export default function Home() {
             </p>
 
             <a
-              href="https://revolut.me/messi_18122022"
+              href="https://revolut.me/moini77"
               target="_blank"
               rel="noopener noreferrer"
               style={{
