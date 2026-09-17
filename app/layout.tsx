@@ -5,7 +5,7 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Ihssan & Sarah — 6 September 2026",
-  description: "We're getting married! Join us in Küsnacht, Zürich.",
+  description: "Photos from our wedding day in Küsnacht, Zürich.",
 };
 
 export default function RootLayout({

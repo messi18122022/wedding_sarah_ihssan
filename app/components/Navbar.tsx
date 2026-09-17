@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { useLang } from "../contexts/LanguageContext";
 import { Lang } from "../i18n/translations";
 
-const SECTION_KEYS = ["join-us", "program", "gallery", "directions", "music", "gifts", "note"] as const;
-const NAV_KEYS = ["joinUs", "program", "gallery", "directions", "music", "gifts", "note"] as const;
+const SECTION_KEYS = ["gallery", "gifts"] as const;
+const NAV_KEYS = ["gallery", "gifts"] as const;
 
 const LANGS: Lang[] = ["en", "fr", "de", "ar"];
 const LANG_LABELS: Record<Lang, string> = { en: "English", fr: "Français", de: "Deutsch", ar: "العربية" };
@@ -101,9 +101,12 @@ export default function Navbar() {
     links.forEach(({ id }) => {
       const el = document.getElementById(id);
       if (!el) return;
+      // Auf ein schmales Band in der Bildschirmmitte prüfen statt auf einen
+      // Anteil des Abschnitts — die Galerie ist zu hoch, um je zu 30 % sichtbar
+      // zu sein, und wäre sonst nie als aktiv markiert.
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActive(id); },
-        { threshold: 0.3 }
+        { threshold: 0, rootMargin: "-45% 0px -50% 0px" }
       );
       obs.observe(el);
       observers.push(obs);

@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Rohmaterial: Originalfotos und Videos bleiben lokal (siehe scripts/optimize-photos.sh)
+/photos/
+/video.mov
+/tanzanimation.mp4
+/tanzanimation_transparent.webm
+/sarah_ihssan.jpeg
+
+# Foto-ZIP wird bei jedem Build neu erzeugt (scripts/make-photo-zip.mjs)
+/public/downloads/
