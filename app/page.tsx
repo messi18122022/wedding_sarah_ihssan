@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 import { useLang } from "@/app/contexts/LanguageContext";
+import Gallery from "@/app/components/Gallery";
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
@@ -412,7 +413,16 @@ export default function Home() {
           </h1>
           <div className="fade-in-up" style={{ position: "relative", width: "100vw", maxWidth: "520px", marginLeft: "calc(-50vw + 50%)", marginRight: "calc(-50vw + 50%)" }}>
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "22%", background: `linear-gradient(to bottom, ${heroMid}, transparent)`, zIndex: 1, pointerEvents: "none" }} />
-            <video src="/video.mp4" autoPlay muted loop playsInline style={{ width: "100%", display: "block", objectFit: "cover" }} />
+            {/* Titelbild — liegt fertig skaliert in public/, daher kein next/image */}
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/hero.jpg"
+              alt="Sarah &amp; Ihssan"
+              width={1200}
+              height={1800}
+              fetchPriority="high"
+              style={{ width: "100%", height: "auto", display: "block" }}
+            />
             <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "45%", background: "linear-gradient(to bottom, transparent, rgba(0,0,0,0.55))", pointerEvents: "none" }} />
             <div dir="ltr" style={{ position: "absolute", bottom: "1.2rem", left: 0, right: 0, textAlign: "center", padding: "0 1rem", zIndex: 2 }}>
               <p className="keep-jost" style={{ fontSize: "1.1rem", color: "#fff", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "0.25rem", fontFamily: "'Jost', sans-serif" }}>
@@ -538,24 +548,9 @@ export default function Home() {
 
       {/* ── GALLERY ── */}
       <section id="gallery" className="scroll-section" style={{ background: "#fdf7f0", paddingTop: "4rem", paddingBottom: "4rem" }}>
-        <div className="max-w-3xl mx-auto px-6 text-center">
+        <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "clamp(2rem, 5vw, 3rem)", fontWeight: 300, letterSpacing: "0.1em" }}>{t.gallery.title}</h2>
-          <div style={{ marginTop: "3rem", border: "1px solid rgba(107,90,69,0.3)", background: "rgba(107,90,69,0.06)", padding: "4rem 2rem" }}>
-            <div style={{ marginBottom: "1.5rem", display: "flex", justifyContent: "center" }}>
-              <svg width="64" height="56" viewBox="0 0 64 56" fill="none" stroke="#6b5a45" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <rect x="4" y="16" width="56" height="36" rx="4" />
-                <circle cx="32" cy="34" r="12" />
-                <circle cx="32" cy="34" r="7" />
-                <path d="M22,16 L22,10 L30,6 L34,6 L42,10 L42,16" />
-                <rect x="48" y="22" width="7" height="5" rx="1" />
-                <circle cx="32" cy="34" r="2.5" fill="#6b5a45" stroke="none" />
-              </svg>
-            </div>
-            <p style={{ color: "#6b5a45", fontFamily: "'Jost', sans-serif", fontSize: "1.4rem", marginBottom: "0.75rem", fontWeight: 300 }}>{t.gallery.comingSoon}</p>
-            <p style={{ color: "#8a7060", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: "400px", margin: "0 auto" }}>
-              {t.gallery.description}
-            </p>
-          </div>
+          <Gallery />
         </div>
       </section>
 

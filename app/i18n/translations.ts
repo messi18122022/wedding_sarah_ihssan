@@ -42,8 +42,10 @@ const en = {
   },
   gallery: {
     title: "Gallery",
-    comingSoon: "Coming Soon",
-    description: "After the big day, this is where all the beautiful memories will live. Check back after 6 September 2026.",
+    subtitle: "A few moments from our day — thank you for being part of it.",
+    close: "Close",
+    previous: "Previous photo",
+    next: "Next photo",
   },
   directions: {
     title: "Directions",
@@ -117,8 +119,10 @@ const fr: typeof en = {
   },
   gallery: {
     title: "Galerie",
-    comingSoon: "Bientôt disponible",
-    description: "Après le grand jour, c'est ici que vous retrouverez tous nos plus beaux souvenirs. Revenez après le 6 septembre 2026.",
+    subtitle: "Quelques moments de notre journée — merci d'en avoir fait partie.",
+    close: "Fermer",
+    previous: "Photo précédente",
+    next: "Photo suivante",
   },
   directions: {
     title: "Itinéraire",
@@ -192,8 +196,10 @@ const de: typeof en = {
   },
   gallery: {
     title: "Galerie",
-    comingSoon: "Demnächst",
-    description: "Nach dem grossen Tag werden hier alle schönen Erinnerungen zu finden sein. Schaut nach dem 6. September 2026 vorbei.",
+    subtitle: "Ein paar Momente von unserem Tag — danke, dass ihr dabei wart.",
+    close: "Schliessen",
+    previous: "Vorheriges Foto",
+    next: "Nächstes Foto",
   },
   directions: {
     title: "Anfahrt",
@@ -267,8 +273,10 @@ const ar: typeof en = {
   },
   gallery: {
     title: "معرض الصور",
-    comingSoon: "قريباً",
-    description: "بعد اليوم الكبير، ستجدون هنا كل الذكريات الجميلة. عودوا بعد ٦ سبتمبر ٢٠٢٦.",
+    subtitle: "لحظات من يومنا — شكراً لكم على مشاركتنا إياه.",
+    close: "إغلاق",
+    previous: "الصورة السابقة",
+    next: "الصورة التالية",
   },
   directions: {
     title: "كيفية الوصول",
