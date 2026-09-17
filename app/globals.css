@@ -203,7 +203,6 @@ body {
   display: block;
 }
 
-.lightbox-close,
 .lightbox-arrow {
   position: absolute;
   background: none;
@@ -213,11 +212,37 @@ body {
   cursor: pointer;
 }
 
-.lightbox-close {
+.lightbox-actions {
+  position: absolute;
   top: 0.75rem;
   right: 1rem;
-  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  z-index: 2;
+}
+
+.lightbox-action {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.lightbox-close {
   font-size: 1.8rem;
+}
+
+.lightbox-action:hover {
+  color: #fff;
 }
 
 .lightbox-arrow {
@@ -230,7 +255,6 @@ body {
 .lightbox-arrow-prev { left: 0.5rem; }
 .lightbox-arrow-next { right: 0.5rem; }
 
-.lightbox-close:hover,
 .lightbox-arrow:hover { color: #fff; }
 
 .lightbox-counter {
@@ -243,4 +267,31 @@ body {
   font-family: 'Jost', sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.12em;
+}
+
+.gallery-download-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.75rem;
+  padding: 0.7rem 1.6rem;
+  border: 1px solid #6b5a45;
+  color: #6b5a45;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.gallery-download-all:hover {
+  background: #6b5a45;
+  color: #fdf7f0;
+}
+
+.gallery-download-size {
+  opacity: 0.65;
+  letter-spacing: 0.08em;
 }

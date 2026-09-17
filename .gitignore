@@ -46,3 +46,6 @@ next-env.d.ts
 /tanzanimation.mp4
 /tanzanimation_transparent.webm
 /sarah_ihssan.jpeg
+
+# Foto-ZIP wird bei jedem Build neu erzeugt (scripts/make-photo-zip.mjs)
+/public/downloads/

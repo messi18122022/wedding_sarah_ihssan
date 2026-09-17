@@ -11,6 +11,8 @@ const en = {
     close: "Close",
     previous: "Previous photo",
     next: "Next photo",
+    download: "Download",
+    downloadAll: "Download all photos",
   },
   gifts: {
     title: "Gifts",
@@ -31,6 +33,8 @@ const fr: typeof en = {
     close: "Fermer",
     previous: "Photo précédente",
     next: "Photo suivante",
+    download: "Télécharger",
+    downloadAll: "Télécharger toutes les photos",
   },
   gifts: {
     title: "Cadeaux",
@@ -51,6 +55,8 @@ const de: typeof en = {
     close: "Schliessen",
     previous: "Vorheriges Foto",
     next: "Nächstes Foto",
+    download: "Herunterladen",
+    downloadAll: "Alle Fotos herunterladen",
   },
   gifts: {
     title: "Geschenke",
@@ -71,6 +77,8 @@ const ar: typeof en = {
     close: "إغلاق",
     previous: "الصورة السابقة",
     next: "الصورة التالية",
+    download: "تنزيل",
+    downloadAll: "تنزيل جميع الصور",
   },
   gifts: {
     title: "الهدايا",
